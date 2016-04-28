@@ -1,0 +1,118 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Your Tax Dollars at Work Fighting Congestion</title>
+    <link rel="stylesheet" type="text/css" href="./css/commerce_tutorial.css">
+
+    <!-- Load d3.js library-->
+    <script src="./js/d3.js"></script>
+
+    <!-- Load d3plus.js library -->
+    <script src="./js/d3plus.full.min.js"></script>
+
+    <!--jquery library, used to build dropdown menus-->
+    <script src="//code.jquery.com/jquery-1.12.0.min.js"></script>
+
+    <!--resources for building leaflet map-->
+    <link rel="stylesheet" href="./css/leaflet.css">
+    <link rel="stylesheet" href="./css/map.css">
+    <script type='text/javascript' src="./js/leaflet.js"></script>
+
+    
+  </head>
+  <body>
+
+    <h1>See where your city stacks up for commute times and congestion relief projects</h1>
+    <div id="div_dropdowns" style="width: 100%">
+      <select id="select_state">
+        <option selected="selected"><b>Select State</b></option>
+        <option>Alabama</option>
+        <option>Alaska</option>
+        <option>Arizona</option>
+        <option>Arkansas</option>
+        <option>California</option>
+        <option>Colorado</option>
+        <option>Connecticut</option>
+        <option>Delaware</option>
+        <option>District of Columbia</option>
+        <option>Florida</option>
+        <option>Georgia</option>
+        <option>Hawaii</option>
+        <option>Idaho</option>
+        <option>Illinois</option>
+        <option>Indiana</option>
+        <option>Iowa</option>
+        <option>Kansas</option>
+        <option>Kentucky</option>
+        <option>Louisiana</option>
+        <option>Maine</option>
+        <option>Maryland</option>
+        <option>Massachusetts</option>
+        <option>Michigan</option>
+        <option>Minnesota</option>
+        <option>Mississippi</option>
+        <option>Missouri</option>
+        <option>Montana</option>
+        <option>Nebraska</option>
+        <option>Nevada</option>
+        <option>New Hampshire</option>
+        <option>New Jersey</option>
+        <option>New Mexico</option>
+        <option>New York</option>
+        <option>North Carolina</option>
+        <option>North Dakota</option>
+        <option>Ohio</option>
+        <option>Oklahoma</option>
+        <option>Oregon</option>
+        <option>Pennsylvania</option>
+        <option>Puerto Rico</option>
+        <option>Rhode Island</option>
+        <option>South Carolina</option>
+        <option>South Dakota</option>
+        <option>Tennessee</option>
+        <option>Texas</option>
+        <option>Utah</option>
+        <option>Vermont</option>
+        <option>Virginia</option>
+        <option>Washington</option>
+        <option>West Virginia</option>
+        <option>Wisconsin</option>
+        <option>Wyoming</option>
+      </select>
+
+      <select id="select_msa">
+        <option>Select Metro Area</option>
+      </select>
+    </div>
+    <div id="div_bottom" style="width: 100%">
+   
+    <!-- Frame for bar chart-->
+    <div id="div_left" style="width: 50%; height: 300px; float: left;">
+      <div id="viz_bar"></div>
+      <p>Average daily one-way commute times (in minutes) for metropolitan statistical areas, including national minimum, maximum, and average.</p>
+      <p><i>Source: 2014 American Community Survey</i></p>
+    </div>
+
+    <!-- Frame for congestion relief map -->
+    <div id="div_right" style="width: 50%; float: right;">
+      <div id="viz_map"></div>
+      <p>Congestion relief projects funded by US Department of Transportation in latest fiscal year.</p>
+      <p><i>Source: USASpending.gov</i></p>
+      </div>
+    </div>
+
+    <!--Look up MSAs for each state -->
+    <script type="text/javascript" src="./js/retrieveMsasByState.js"></script>
+    <!--Add state names to dropdown menu select_state-->
+    <script type="text/javascript" src="./js/loadDropdowns.js"></script>
+   
+    
+    <!--Run script to load bar chart of commute times-->
+    <script src="./js/build_commute_times_viz.js"></script>
+
+    <!--Run script to load map of transportation project locations-->
+    <script src="./js/build_congestion_relief_map_viz.js"></script>
+
+  </body>
+</html>

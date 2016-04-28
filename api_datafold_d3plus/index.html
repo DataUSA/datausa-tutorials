@@ -1,0 +1,36 @@
+<!doctype html>
+<meta charset="utf-8">
+
+<script src="http://www.d3plus.org/js/d3.js"></script>
+<script src="http://www.d3plus.org/js/d3plus.js"></script>
+
+<div id="viz"></div>
+
+<script>
+
+  function datafold(json) {
+    return json.data.map(function(data){
+      return json.headers.reduce(function(obj, header, i){
+        obj[header] = data[i];
+        return obj;
+      }, {});
+    });
+  }
+
+  var visualization = d3plus.viz()
+    .container("#viz")
+    .attrs("http://db.datausa.io/attrs/pums_degree", function(json){
+      return datafold(json).reduce(function(obj, d){
+        d.degree = d.id;
+        obj[d.id] = d;
+        return obj;
+      }, {});
+    })
+    .data("http://db.datausa.io/api/?show=naics,degree&sumlevel=0,all&required=num_ppl&naics=23", datafold)
+    .type("tree_map")
+    .id("degree")
+    .size("num_ppl")
+    .text("name")
+    .draw();
+
+</script>

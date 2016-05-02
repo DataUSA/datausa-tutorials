@@ -9,165 +9,64 @@
 //---------------------------------------------------------------//
 
 function lookupAbbreviation(name) {
-    var result = "State not found";
-    switch(name) {
-    case("Alabama"):
-	result = "AL";
-	break;
-    case("Alaska"):
-	result = "AK";
-	break;
-    case("Arizona"):
-	result = "AZ";
-	break;
-    case("Arkansas"):
-	result = "AR";
-	break;
-    case("California"):
-	result = "CA";
-	break;
-    case("Colorado"):
-	result = "CO";
-	break;
-    case("Connecticut"):
-	result = "CT";
-	break;
-    case("Delaware"):
-	result = "DE";
-	break;
-    case("District of Columbia"):
-	result = "DC";
-	break;
-    case("Florida"):
-	result = "FL";
-	break;
-    case("Georgia"):
-	result = "GA";
-	break;
-    case("Hawaii"):
-	result = "HI";
-	break;
-    case("Idaho"):
-	result = "ID";
-	break;
-    case("Illinois"):
-	result = "IL";
-	break;
-    case("Indiana"):
-	result = "IN";
-	break;
-    case("Iowa"):
-	result = "IA";
-	break;
-    case("Kansas"):
-	result = "KS";
-	break;
-    case("Kentucky"):
-	result = "KY";
-	break;
-    case("Louisiana"):
-	result = "LA";
-	break;
-    case("Maine"):
-	result = "ME";
-	break;
-    case("Maryland"):
-	result = "MD";
-	break;
-    case("Massachusetts"):
-	result = "MA";
-	break;
-    case("Michigan"):
-	result = "MI";
-	break;
-    case("Minnesota"):
-	result = "MN";
-	break;
-    case("Mississippi"):
-	result = "MS";
-	break;
-    case("Missouri"):
-	result = "MO";
-	break;
-    case("Montana"):
-	result = "MT";
-	break;
-    case("Nebraska"):
-	result = "NE";
-	break;
-    case("Nevada"):
-	result = "NV";
-	break;
-    case("New Hampshire"):
-	result = "NH";
-	break;
-    case("New Jersey"):
-	result = "NJ";
-	break;
-    case("New Mexico"):
-	result = "NM";
-	break;
-    case("New York"):
-	result = "NY";
-	break;
-    case("North Carolina"):
-	result = "NC";
-	break;
-    case("North Dakota"):
-	result = "ND";
-	break;
-    case("Ohio"):
-	result = "OH";
-	break;
-    case("Oklahoma"):
-	result = "OK";
-	break;
-    case("Oregon"):
-	result = "OR";
-	break;
-    case("Pennsylvania"):
-	result = "PA";
-	break;
-    case("Puerto Rico"):
-	result = "PR";
-	break;
-    case("Rhode Island"):
-	result = "RI";
-	break;
-    case("South Carolina"):
-	result = "SC";
-	break;
-    case("South Dakota"):
-	result = "SD";
-	break;
-    case("Tennessee"):
-	result = "TN";
-	break;
-    case("Texas"):
-	result = "TX";
-	break;
-    case("Utah"):
-	result = "UT";
-	break;
-    case("Vermont"):
-	result = "VT";
-	break;
-    case("Virginia"):
-	result = "VA";
-	break;
-    case("Washington"):
-	result = "WA";
-	break;
-    case("West Virginia"):
-	result = "WV";
-	break;
-    case("Wisconsin"):
-	result = "WI";
-	break;
-    case("Wyoming"):
-	result = "WY";
+    var stateMap = {
+        "Alabama": "AL",
+        "Alaska": "AK",
+        "Arizona": "AZ",
+        "Arkansas": "AR",
+        "California": "CA",
+        "Colorado": "CO",
+        "Connecticut": "CT",
+        "Delaware": "DE",
+        "District of Columbia": "DC",
+        "Florida": "FL",
+        "Georgia": "GA",
+        "Hawaii": "HI",
+        "Idaho": "ID",
+        "Illinois": "IL",
+        "Indiana": "IN",
+        "Iowa": "IA",
+        "Kansas": "KS",
+        "Kentucky": "KY",
+        "Louisiana": "LA",
+        "Maine": "ME",
+        "Maryland": "MD",
+        "Massachusetts": "MA",
+        "Michigan": "MI",
+        "Minnesota": "MN",
+        "Mississippi": "MS",
+        "Missouri": "MO",
+        "Montana": "MT",
+        "Nebraska": "NE",
+        "Nevada": "NV",
+        "New Hampshire": "NH",
+        "New Jersey": "NJ",
+        "New Mexico": "NM",
+        "New York": "NY",
+        "North Carolina": "NC",
+        "North Dakota": "ND",
+        "Ohio": "OH",
+        "Oklahoma": "OK",
+        "Oregon": "OR",
+        "Pennsylvania": "PA",
+        "Puerto Rico": "PR",
+        "Rhode Island": "RI",
+        "South Carolina": "SC",
+        "South Dakota": "SD",
+        "Tennessee": "TN",
+        "Texas": "TX",
+        "Utah": "UT",
+        "Vermont": "VT",
+        "Virginia": "VA",
+        "Washington": "WA",
+        "West Virginia": "WV",
+        "Wisconsin": "WI",
+        "Wyoming": "WY"
     }
-    return result;
+    if (name in stateMap) {
+        return stateMap[name];
+    } 
+    return "State not found";
 }
 
 //---------------------------------------------------------------//

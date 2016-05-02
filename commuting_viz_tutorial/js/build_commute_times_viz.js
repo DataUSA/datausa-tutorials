@@ -26,18 +26,18 @@ var viz_bar;
 /*--------------------------------------------------*/
 function get(url) {
     return new Promise(function(succeed, fail) {
-	var req = new XMLHttpRequest();
-	req.open("GET", url, true);
-	req.addEventListener("load", function() {
-	    if (req.status < 400)
-		succeed(req.responseText);
-	    else
-		fail(new Error("Request failed: " + req.statusText));
-	});
-	req.addEventListener("error", function() {
-	    fail(new Error("Network error"));
-	});
-	req.send(null);
+      	var req = new XMLHttpRequest();
+      	req.open("GET", url, true);
+      	req.addEventListener("load", function() {
+    	    if (req.status < 400)
+        		succeed(req.responseText);
+    	    else
+        		fail(new Error("Request failed: " + req.statusText));
+      	});
+      	req.addEventListener("error", function() {
+    	    fail(new Error("Network error"));
+      	});
+      	req.send(null);
     });
 }
 /*------------------------------------------------------------*/
@@ -58,11 +58,11 @@ function dataFold(data, header) {
 
     var elementLength = data[0].length;
     for (var i = 0; i < arrayLength; i++) {
-	var newObject = {};
-	for  (var j = 0; j < elementLength; j++) {
-	    newObject[header[j]] = data[i][j];
-	}
-	result.push(newObject);
+    	var newObject = {};
+    	for (var j = 0; j < elementLength; j++) {
+  	    newObject[header[j]] = data[i][j];
+    	}
+    	result.push(newObject);
     }
 
     return result;
@@ -73,14 +73,14 @@ function dataFold(data, header) {
 /*------------------------------------------------------------*/
 function buildViz(data) {
     viz_bar = d3plus.viz()
-	.container("#viz_bar")
-	.data(data)
-	.type("bar")
-	.id("msaName")
-	.x("mean_commute_minutes")
-	.y({"value": "msaName", "scale": "discrete"})
-	.title("Average Commute Times (minutes)")
-	.draw()
+    	.container("#viz_bar")
+    	.data(data)
+    	.type("bar")
+    	.id("msaName")
+    	.x("mean_commute_minutes")
+    	.y({"value": "msaName", "scale": "discrete"})
+    	.title("Average Commute Times (minutes)")
+    	.draw()
     return true;
 }
 
@@ -93,16 +93,15 @@ function addMSANames(data, msaNames) {
     //Only need fields 8 and 9
     //Add field 7 to back end of data where field 8 matches geo
     for (var i = 0; i < data.length; i++) {
-	var newDataRow = {};
-	newDataRow = data[i];
-	for (var j = 0; j < msaNames.length; j++) {
-	    if (msaNames[j][8] == data[i].geo) {
-		newDataRow.msaName = msaNames[j][7];
-		break;
-	    }
-	}
-	dataWithNames.push(newDataRow);
-
+    	var newDataRow = {};
+    	newDataRow = data[i];
+    	for (var j = 0; j < msaNames.length; j++) {
+  	    if (msaNames[j][8] == data[i].geo) {
+      		newDataRow.msaName = msaNames[j][7];
+      		break;
+  	    }
+    	}
+    	dataWithNames.push(newDataRow);
     }
     return dataWithNames;
 }
@@ -114,9 +113,9 @@ function msaSubset(data, myMSA) {
     var filteredData=[];
     filteredData.push(maxMSA(data));
     for (var i = 0; i < data.length; i++) {
-	if (data[i].msaName == myMSA || data[i].geo == "01000US") {
-	    filteredData.push(data[i]);
-	}
+    	if (data[i].msaName == myMSA || data[i].geo == "01000US") {
+  	    filteredData.push(data[i]);
+    	}
     }
     filteredData.push(minMSA(data));
 
@@ -129,18 +128,18 @@ function msaSubset(data, myMSA) {
 function minMSA(data) {
     var min = data[0];
     for (var i = 1; i < data.length; i++) {
-	if (data[i].mean_commute_minutes < min.mean_commute_minutes) {
-	    min = data[i];
-	}
+    	if (data[i].mean_commute_minutes < min.mean_commute_minutes) {
+  	    min = data[i];
+    	}
     }
     return min;
 }
 function maxMSA(data) {
     var max = data[0];
     for (var i = 1; i < data.length; i++) {
-	if (data[i].mean_commute_minutes > max.mean_commute_minutes) {
-	    max = data[i];
-	}
+    	if (data[i].mean_commute_minutes > max.mean_commute_minutes) {
+  	    max = data[i];
+    	}
     }
     return max;
 }

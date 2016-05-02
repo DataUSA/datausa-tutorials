@@ -6,7 +6,7 @@
 /* Globals                                         */
 /*-------------------------------------------------*/
 //URL for mean commute times api call
-var url1 = "http://db.datausa.io/api/?show=geo&sumlevel=msa&required=mean_commute_minutes&year=latest";
+var url1 = "http://api.datausa.io/api/?show=geo&sumlevel=msa&required=mean_commute_minutes&year=latest";
 //URL for msa names dictionary
 var url2 = "http://api.datausa.io/attrs/geo/?sumlevel=msa";
 //URL for national average commute times
@@ -102,7 +102,7 @@ function addMSANames(data, msaNames) {
 	    }
 	}
 	dataWithNames.push(newDataRow);
-	
+
     }
     return dataWithNames;
 }
@@ -162,7 +162,7 @@ getJSON(url1).then(function(data) {
     for (var i = 0; i < data3.length; i++) {
 	data4.push(data3[i]);
     }
-    
+
     return getJSON(url3);
 }).then(function (nationalAverage) {
 
@@ -182,7 +182,3 @@ getJSON(url1).then(function(data) {
     console.log("Failed to fetch data: " + error);
     alert("Failed to fetch data: " + error);
 });
-
-       
-
-

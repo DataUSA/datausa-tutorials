@@ -19,12 +19,12 @@
     <link rel="stylesheet" href="./css/map.css">
     <script type='text/javascript' src="./js/leaflet.js"></script>
 
-    
+
   </head>
   <body>
 
     <h1>See where your city stacks up for commute times and congestion relief projects</h1>
-    <div id="div_dropdowns" style="width: 100%">
+    <div id="div_dropdowns">
       <select id="select_state">
         <option selected="selected"><b>Select State</b></option>
         <option>Alabama</option>
@@ -86,7 +86,7 @@
       </select>
     </div>
     <div id="div_bottom" style="width: 100%">
-   
+
     <!-- Frame for bar chart-->
     <div id="div_left" style="width: 50%; height: 300px; float: left;">
       <div id="viz_bar"></div>
@@ -106,8 +106,8 @@
     <script type="text/javascript" src="./js/retrieveMsasByState.js"></script>
     <!--Add state names to dropdown menu select_state-->
     <script type="text/javascript" src="./js/loadDropdowns.js"></script>
-   
-    
+
+
     <!--Run script to load bar chart of commute times-->
     <script src="./js/build_commute_times_viz.js"></script>
 

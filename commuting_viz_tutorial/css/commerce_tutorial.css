@@ -1,3 +1,21 @@
+body {
+  font-family: Helvetica, Arial, sans-serif;
+  margin: 0;
+  padding: 50px;
+}
+
+h1 {
+  font-size: 30px;
+  font-weight: 200;
+  text-align: center;
+}
+
+#div_dropdowns {
+  margin-bottom: 30px;
+  text-align: center;
+  width: 100%;
+}
+
 /*http://www.w3schools.com/howto/howto_js_dropdown.asp */
 .dropbtn {
     background-color: #4CAF50;

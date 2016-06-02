@@ -86,6 +86,7 @@ function buildViz(data) {
         // title case all other strings and replace underscores with spaces
         return d3plus.string.title(value.replace(/_/g, " "));
       }})
+      .height(400)
     	.type("bar")
     	.id("msaName")
     	.x("mean_commute_minutes")

@@ -1,0 +1,31 @@
+<html>
+  <head>
+    <meta charset="utf-8">
+    <!--Title Bar Text goes next -->
+    <title>Which States Have the Largest Populations of Veterans?</title>
+
+    <!--pointer to css style sheet -->
+    <link rel="stylesheet" type="text/css" href="./css/vets_viz.css">
+
+    <!-- Load d3.js library-->
+    <script src="https://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+
+    
+    <!-- Load d3plus library -->
+    <script src="./js/d3plus.full.min.js"></script>
+
+    <!-- Don't forget to load helper functions library -->
+    <script type="text/javascript" src="./js/helperFunctions.js"></script>
+
+  </head>
+  <body>
+    <h1>Which States have the Largest and Smallest Populations of Veterans?</h1>
+    <div id="vets_viz">
+    </div>
+    <p><i>Source: American Community Survey, via DataUSA API</i></p>
+
+    <!-- Load script to create bar graph of vets data -->
+    <script type="text/javascript" src="./js/build_vets_bar_graph.js"></script>
+
+  </body>
+</html>

@@ -1,0 +1,44 @@
+<html>
+  <head>
+    <meta charset="utf-8">
+    <!--Title Bar Text goes next -->
+    <title>Which States Have the Largest Populations of Veterans?</title>
+
+    <!--pointer to css style sheet -->
+    <link rel="stylesheet" type="text/css" href="./css/vets_viz.css">
+
+    <!--jquery lib -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
+
+    <!-- Dynatable stylesheets and js lib -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Dynatable/0.3.1/jquery.dynatable.css">
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Dynatable/0.3.1/jquery.dynatable.min.js"></script>
+    
+    <!-- Don't forget to load helper functions library -->
+    <script type="text/javascript" src="./js/helperFunctions.js"></script>
+    
+    
+  </head>
+  <body>
+    <h1>Which States have the Largest and Smallest Populations of Veterans?</h1>
+    <div id="vets_viz">
+      <table id="vets_table" class="table table-bordered">
+	<thead>
+	  <th class="dynatable-head">State</th>
+	  <th class="dynatable-head">conflict_total</th>
+	  <th class="dynatable-head">conflict_wwii</th>
+	  <th class="dynatable-head">conflict_korea</th>
+	  <th class="dynatable-head">conflict_vietnam</th>
+	  <th class="dynatable-head">conflict_gulf90s</th>
+	  <th class="dynatable-head">conflict_gulf01</th>
+	</thead>
+	<tbody></tbody>
+      </table>
+    </div>
+    <p><i>Source: American Community Survey, via DataUSA API</i></p>
+
+    <!-- Load script to create bar graph of vets data -->
+    <script type="text/javascript" src="./js/build_vets_table.js"></script>
+
+  </body>
+</html>

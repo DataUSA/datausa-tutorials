@@ -75,6 +75,18 @@ function buildViz(data) {
     viz_bar = d3plus.viz()
     	.container("#viz_bar")
     	.data(data)
+      .format({"text": function(value, params) {
+
+        // don't format location names
+        if (params.key === "msaName") return value;
+
+        // change "msaName" to "Location"
+        if (value === "msaName") return "Location";
+
+        // title case all other strings and replace underscores with spaces
+        return d3plus.string.title(value.replace(/_/g, " "));
+      }})
+      .height(400)
     	.type("bar")
     	.id("msaName")
     	.x("mean_commute_minutes")

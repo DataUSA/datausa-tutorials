@@ -14,16 +14,17 @@ var vetsData2 = [];
 
  var fakeData = [
      {
-	 "geo": "Maine",
+	 "state": "Maine",
 	 "conflict_total":20,
-	 "test": 15
+	 "conflict_wwii": 15
      }, {
-	 "geo": "New Hampshire",
+	 "state": "New Hampshire",
 	 "conflict_total":20,
-	 "test": 10
-     }, {"geo": "Vermont",
+	 "conflict_wwii": 10
+     }, {
+	 "state": "Vermont",
 	 "conflict_total":30,
-	 "test": 5
+	 "conflict_wwii": 5
 	}];
 
 
@@ -35,13 +36,14 @@ var vetsData2 = [];
 getJSON(vetsURL).then(function(response) {
     var vetsData = objectify(response);
     vetsData2 = addStateNames(vetsData);
+    console.log(vetsData2);
 
     $('#vets_table').dynatable({
     table: {
 	defaultColumnIdStyle: 'underscore'
     },
 	dataset: {
-	    records: vetsData2
+	    records: fakeData
 	}
     });
 });

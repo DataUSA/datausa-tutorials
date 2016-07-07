@@ -43,13 +43,16 @@ function buildViz(data) {
  var fakeData = [
      {
 	 "geo": "Maine",
+	 "state": "Maine",
 	 "conflict_total":20,
 	 "test": 15
      }, {
 	 "geo": "New Hampshire",
+	 "state": "New Hampshire",
 	 "conflict_total":20,
 	 "test": 10
      }, {"geo": "Vermont",
+	 "state": "Vermont",
 	 "conflict_total":30,
 	 "test": 5
 	}];
@@ -63,7 +66,7 @@ getJSON(vets_url).then(function(data) {
     var vetsData2 = addStateNames(vetsData);
 
     //Pass to d3plus
-    buildViz(vetsData2);
+    buildViz(fakeData);
 
 });
 

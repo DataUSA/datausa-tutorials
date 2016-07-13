@@ -1,0 +1,300 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>Developing Locally Using Github</title>
+
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+		<link rel="stylesheet" href="/revealjs/css/reveal.css">
+		<link rel="stylesheet" href="/revealjs/css/theme/league.css" id="theme">
+	  <link rel="stylesheet" type="text/css" href="/css/font-awesome-4.4.0/css/font-awesome.min.css">
+
+		<!-- Code syntax highlighting -->
+		<link rel="stylesheet" href="/revealjs/lib/css/zenburn.css">
+
+		<style>
+			.inline {
+				display: inline-block;
+				margin: 25px !important;
+				vertical-align: middle !important;
+			}
+			i {
+				color: rgba(255, 255, 255, 0.4);
+				font-size: 300px !important;
+			}
+			.noborder {
+				background: none !important;
+				border: none !important;
+				box-shadow: none !important;
+			}
+			ul.small {
+				font-size: 18px !important;
+			}
+			ul.small li {
+				margin: 5px 0 !important;
+			}
+			.bottom {
+				bottom: 0;
+				position: absolute;
+			}
+		</style>
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? '/revealjs/css/print/pdf.css' : '/revealjs/css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+
+		<!--[if lt IE 9]>
+		<script src="/revealjs/lib/js/html5shiv.js"></script>
+		<![endif]-->
+
+	</head>
+
+	<body>
+
+		<div class="reveal">
+			<div class="slides">
+
+
+
+        <!-- specific slides start here -->
+
+
+
+
+        <section>
+          <section>
+            <h1>Github</h1>
+            <i class="fa fa-github"></i>
+          </section>
+          <section>
+            <h1>What is Github?</h1>
+            <blockquote class="fragment">
+        			&ldquo;Git (/ɡɪt/) is a distributed revision control system with an emphasis on speed, data integrity, and support for distributed, non-linear workflows.&rdquo;
+        		</blockquote>
+            <ul>
+              <li class="fragment">Saves all file revisions for easy rollbacks</li>
+              <li class="fragment">A central place for code collaboration</li>
+              <li class="fragment">Open Source</li>
+              <li class="fragment">A great way to host a simple website (Github Pages)</li>
+            </ul>
+          </section>
+          <section>
+            <h2>Let's Sign up for an account</h2>
+            <img class="stretch noborder" src="/img/github-signup.png">
+            <p>www.github.com</p>
+          </section>
+          <section>
+            <h2>Create your first repository</h2>
+            <img class="stretch noborder" src="/img/github-home.png">
+            <p>Your repository list is on the bottom right. You can think of a repository as a shared project folder.</p>
+            <p>Click the big green button.</p>
+          </section>
+          <section>
+            <h2>Repository Settings</h2>
+            <img class="noborder inline" src="/img/github-create.png" width="50%">
+            <ul class="inline">
+              <li>&lt;username&gt;.github.io</li>
+              <li>Make it Public</li>
+              <li>Initialize this repository with a README</li>
+            </ul>
+          </section>
+          <section>
+            <h2>Congratulations</h2>
+            <img class="stretch noborder" src="/img/github-repo.png">
+            <p>You've created your first repository.</p>
+            <p>In a few minutes, it will automagically be published to http://&lt;username&gt;.github.io/</p>
+          </section>
+          <section>
+            <h2>Let's edit a file</h2>
+            <img class="stretch noborder" src="/img/github-readme.png">
+            <p><b>YOUR TASK:</b> Change the contents of the README.md file</p>
+          </section>
+          <section>
+            <h2>Let's add a file</h2>
+            <img class="stretch noborder" src="/img/github-add.png">
+            <p><b>YOUR TASK:</b> Create an index.html file and view it in a browser</p>
+          </section>
+        </section>
+
+        <section>
+          <section>
+            <h1>Local Testing Repository</h1>
+            <i class="fa fa-laptop"></i>
+          </section>
+          <section>
+            <h2>Why local? Github.com was easy!</h2>
+            <ul>
+              <li class="fragment">Trust me, the text editor you downloaded is better.</li>
+              <li class="fragment">Allows you to preview the changes in a browser before it goes live.</li>
+              <li class="fragment">You can update/upload multiple files in the same commit.</li>
+              <li class="fragment">...and so much more!</li>
+            </ul>
+          </section>
+					<section>
+						<h2>Download Github Desktop</h2>
+            <img class="stretch noborder" src="/img/github-desktop.png">
+						https://desktop.github.com/
+					</section>
+          <section>
+            <h2>Clone your Repository</h2>
+						<small>After following the setup instructions, including logging into your account and installing any additional software, download your repository by using the menu hidden beneath the plus sign in the top left.</small>
+            <img class="stretch noborder" src="/img/github-clone.png">
+          </section>
+          <section>
+            <h2>Changing Files Locally</h2>
+            <p>
+              With your repository on your machine now, open the folder in your text editor. In there, you should see a list of the files in a panel on the left.
+            </p>
+            <br>
+            <p>
+              Click on index.html to open it, change the text inside of it, and save it. Now let's try to upload that file back to Github.com.
+            </p>
+          </section>
+          <section>
+            <h2>Uploading to your repository</h2>
+            <p>
+              Uploading files to your repository is called "pushing", and a push can contain several groups of changes called "commits".
+            </p>
+						<p>
+							Commits have comments attached to them that tells the world what was changed in those files.
+						</p>
+          </section>
+          <section>
+            <h2>Push example</h2>
+            <blockquote>
+              <ul>
+                <li>Commit: "created a new logo"
+                  <ul>
+                    <li>index.html</li>
+                    <li>logo.png</li>
+                  </ul>
+                </li>
+                <br>
+                <li>Commit: "changed background color and title"
+                  <ul>
+                    <li>styles.css</li>
+                    <li>index.html</li>
+                  </ul>
+                </li>
+              </ul>
+            </blockquote>
+          </section>
+          <section>
+            <h2>Syncing with Github.com</h2>
+            <p>
+              The program only lists files with changes. Check off the files you'd like to commit, and write a commit message.
+            </p>
+						<img class="stretch noborder" src="/img/github-commit.png">
+						<p>
+							Click "commit to master", and then Sync!
+						</p>
+          </section>
+        </section>
+
+        <section>
+          <section>
+            <h1>Running the Site Locally</h1>
+            <i class="fa fa-server"></i>
+          </section>
+          <section>
+            <h2>Running the Site Locally</h2>
+            <p>
+              So you've got updating files under your belt. But what if you want to view the changes in a browser BEFORE you push to the live site? These next few steps will get your computer set up as a local server to view these files.
+            </p>
+          </section>
+          <section>
+            <h2>Using the Shell</h2>
+            <p>
+              Powershell (Windows) and Terminal (Mac) are programs that just interact with your computer through text commands. You can make folders, move files, and even launch applications.
+            </p>
+            <p>
+              Commands are issued by writing the command and pressing the return key. Only 1 command can be issued at a time.
+            </p>
+          </section>
+          <section>
+            <h2>Directories in the Shell</h2>
+            <p>
+              When interacting with your computer through a shell, you are always issuing commands from a specific folder on your computer.
+            </p>
+            <p>To move into a specific folder, use the cd command:</p>
+            <pre><code class="bash">cd /path/to/my/folder/</code></pre>
+          </section>
+          <section>
+            <h2>Actually Running the Site</h2>
+            <p>
+              OS X Terminal:
+            </p>
+            <pre><code class="bash">python -m SimpleHTTPServer</code></pre>
+            <p>
+              Windows Powershell:
+            </p>
+            <pre><code class="bash">python –m http.server 8000</code></pre>
+          </section>
+          <section>
+            <h2>Look in your browser!</h2>
+            <p>
+              You should be able to see your site at the following URL:
+            </p>
+            <pre><code class="bash">http://localhost:8000/</code></pre>
+          </section>
+          <section>
+            <h2>Stopping the server</h2>
+            <p>
+              Anytime you would like to stop the server from running (say, to commit some files to Git), you can <u><strong>cancel</strong></u> the process by pressing <u><strong>control + c</strong></u> on your keyboard while in Terminal.
+            </p>
+          </section>
+        </section>
+
+
+
+
+        <!-- specific slides end here -->
+
+
+
+
+			</div>
+		</div>
+
+		<script src="/revealjs/lib/js/head.min.js"></script>
+		<script src="/revealjs/js/reveal.js"></script>
+
+		<script>
+
+			// Full list of configuration options available at:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: false,
+				progress: true,
+				history: true,
+				center: true,
+				overview: true,
+
+				transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+				// Optional reveal.js plugins
+				dependencies: [
+					{ src: '/revealjs/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: '/revealjs/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: '/revealjs/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: '/revealjs/plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: '/revealjs/plugin/zoom-js/zoom.js', async: true },
+					{ src: '/revealjs/plugin/notes/notes.js', async: true }
+				]
+			});
+
+		</script>
+
+	</body>
+</html>

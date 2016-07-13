@@ -1,0 +1,383 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>Data USA API</title>
+
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+		<link rel="stylesheet" href="/revealjs/css/reveal.css">
+		<link rel="stylesheet" href="/revealjs/css/theme/league.css" id="theme">
+	  <link rel="stylesheet" type="text/css" href="/css/font-awesome-4.4.0/css/font-awesome.min.css">
+
+		<!-- Code syntax highlighting -->
+		<link rel="stylesheet" href="/revealjs/lib/css/zenburn.css">
+
+		<style>
+			.inline {
+				display: inline-block;
+				margin: 25px !important;
+				vertical-align: middle !important;
+			}
+			i {
+				color: rgba(255, 255, 255, 0.4);
+				font-size: 300px !important;
+			}
+			.noborder {
+				background: none !important;
+				border: none !important;
+				box-shadow: none !important;
+			}
+			ul.small {
+				font-size: 18px !important;
+			}
+			ul.small li {
+				margin: 5px 0 !important;
+			}
+			.bottom {
+				bottom: 0;
+				position: absolute;
+			}
+		</style>
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? '/revealjs/css/print/pdf.css' : '/revealjs/css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+
+		<!--[if lt IE 9]>
+		<script src="/revealjs/lib/js/html5shiv.js"></script>
+		<![endif]-->
+
+	</head>
+
+	<body>
+
+		<div class="reveal">
+			<div class="slides">
+
+
+
+        <!-- specific slides start here -->
+
+
+
+
+        <section>
+          
+          <section>
+            <h1>Data USA API</h1>
+            <i class="fa fa-eye"></i>
+          </section>
+          
+          <section>
+            <h1>What is an API?</h1>
+            <blockquote>
+        			&ldquo;In layman's terms, I've always said an API is like a translator between two people who speak different languages. In software, data can be consumed or distributed using an API (or translator) so that two different kinds of software can communicate. Good software has a strong translator (API) that follows rules and protocols for security and data cleanliness.&rdquo;
+        		</blockquote>
+            Colleen <br />http://stackoverflow.com/a/33789319/467099
+          </section>
+          <section>
+            <h2>Separation of Data and Content</h2>
+            <img class="stretch noborder" src="/img/api-console.png">
+          </section>
+          <section>
+            <h2>Lets take a look...</h2>
+            <img class="stretch noborder" src="/img/api-data-all.png">
+          </section>
+          <section>
+            <h2>Unpacking the result</h2>
+            <ul>
+              <li>data</li>
+              <li>headers</li>
+              <li>logic</li>
+              <li>source</li>
+              <li>sub</li>
+            </ul>
+          </section>
+          <section>
+            <img class="stretch noborder" src="/img/api-data-data.png">
+          </section>
+          <section>
+            <img class="stretch noborder" src="/img/api-data-headers.png">
+          </section>
+          <section>
+            <img class="stretch noborder" src="/img/api-data-logic.png">
+          </section>
+          <section>
+            <img class="stretch noborder" src="/img/api-data-source.png">
+          </section>
+        </section>
+
+        <section>
+          <section>
+            <h1>Data vs. Attributes</h1>
+            <p>We can divide the API into 2 different types of endpoints</p>
+            <code>http://api.datausa.io/data/</code>
+            <code>http://api.datausa.io/attrs/</code>
+          </section>
+          <section>
+            <h2>Data vs. Attributes</h2>
+            <blockquote>
+              The data that is returned contains only the IDs for the locations requested but if a user were looking to show any greater detail about these locations (such as their full names or an associated image) they would need to load the location attributes. Separating these 2 different types of data allows for economy of bandwidth since the metadata is provided only when requested.
+            </blockquote>
+          </section>
+          <section>
+            <h2>Attribute Types</h2>
+            <ul>
+              <li class="fragment">Geography (geo)</li>
+              <li class="fragment">Higher Education Course (cip)</li>
+              <li class="fragment">Industry (naics)</li>
+              <li class="fragment">Occupation (soc)</li>
+            </ul>
+          </section>
+          <section>
+            <h2>Sumlevels... aka Nestings</h2>
+            <img class="stretch noborder" src="/img/api-russian-dolls.jpg">
+          </section>
+          <section>
+            <h2>Geographic Sumlevels</h2>
+            <ul>
+              <li>Nation (010)</li>
+              <li>State (040)</li>
+              <li>County (050)</li>
+              <li>Public Use Microdata Area (795)</li>
+              <li>Metropolitan Statistical Area (310)</li>
+              <li>Census Designated Place (160)</li>
+            </ul>
+          </section>
+          <section>
+            <h2>Geographic Attribute API Endpoints</h2>
+            <table>
+              <tr>
+                <td>All geos</td>
+                <td>http://api.datausa.io/attrs/geo/</td>
+              </tr>
+              <tr>
+                <td>Get geo by ID</td>
+                <td>/attrs/geo/04000US25/</td>
+              </tr>
+              <tr>
+                <td>Get geo's parents</td>
+                <td>/attrs/geo/04000US25/parents/</td>
+              </tr>
+              <tr>
+                <td>Get geo's neighbors</td>
+                <td>/attrs/geo/04000US25/neighbors/</td>
+              </tr>
+              <tr>
+                <td>Filter by sumlevel</td>
+                <td>/attrs/geo/?sumlevel=state</td>
+              </tr>
+            </table>
+          </section>
+          <section>
+            <h2>Occupation Sumlevels</h2>
+            <ul>
+              <li>Major Group (0)</li>
+              <li>Minor Group (1)</li>
+              <li>Broad Occupation (2)</li>
+              <li>Detailed Occupation (3)</li>
+            </ul>
+            <p>
+              <div class="crumb-trail">
+              <a href="/profile/soc/110000-290000/">Management, business, science, &amp; arts occupations</a> &gt;<br />
+              <a href="/profile/soc/150000-190000/">Computer, engineering, &amp; science occupations</a> &gt;<br />
+              <a href="/profile/soc/190000/">Life, physical, &amp; social science occupations</a> &gt;<br />
+              <a href="http://datausa.io/profile/soc/193011/">Economists</a>
+              </div>
+            </p>
+          </section>
+
+          <section>
+            <h2>Find all Attributes (self-reflecting API)</h2>
+            http://api.datausa.io/attrs/list/
+          </section>
+        </section>
+
+        <section>
+          <section>
+            <h1>Let there be Data!</h1>
+            <i class="fa fa-server"></i>
+          </section>
+          <section>
+            <h2>A (very) simple Example</h2>
+            http://api.datausa.io/api/?show=cip&sumlevel=all
+          </section>
+          <section>
+            <h2>Supported Query Parameters</h2>
+            <table>
+              <tr>
+                <th>Key</th>
+                <th>Accepted Values</th>
+                <th>Explanation</th>
+              </tr>
+              <tr>
+                <td>show</td>
+                <td>attribute type</td>
+                <td>type of entity being shown (unique/primary key)</td>
+              </tr>
+              <tr>
+                <td>sumlevel</td>
+                <td>supported sumlevels for shown attribute</td>
+                <td>return only the desired sumlevel</td>
+              </tr>
+              <tr>
+                <td>required</td>
+                <td>any column</td>
+                <td>force the API to return a desired table</td>
+              </tr>
+              <tr>
+                <td>where</td>
+                <td>a condition</td>
+                <td>filter returned data on some criteria</td>
+              </tr>
+              <tr>
+                <td>&lt;attr&gt;</td>
+                <td>attr type</td>
+                <td>filter returned data on some criteria</td>
+              </tr>
+            </table>
+          </section>
+
+          <section>
+            <h2>Supported Query Parameters Continued</h2>
+            <table>
+              <tr>
+                <td>limit</td>
+                <td>number</td>
+                <td>limit the returned data by the desired number of rows</td>
+              </tr>
+              <tr>
+                <td>order</td>
+                <td>a column</td>
+                <td>order the data by the desired column</td>
+              </tr>
+              <tr>
+                <td>sort</td>
+                <td>asc|desc</td>
+                <td>change the ordering option to be ascending or descending</td>
+              </tr>
+            </table>
+          </section>
+          <section>
+            <h2>Logic Layer or Smart Substitutions</h2>
+            <pre>http://api.datausa.io/api/?show=soc&sumlevel=2&required=num_ppl&geo=16000US0150000</pre>
+          </section>
+        </section>
+        
+        <section>
+          <section>
+            <h1>Some advanced features</h1>
+            <i class="fa fa-diamond"></i>
+          </section>
+          <section>
+            <h2>Downloading as CSV</h2>
+            <p>To download the data as a CSV, simply add csv into the URL as follows:</p>
+            <code>http://api.datausa.io/api/csv/?show=cip<br>&sumlevel=2<br>&required=grads_men,grads_women</code>
+          </section>
+          <section>
+            <h2>Advanced Filtering (using where)</h2>
+            <table>
+            <thead>
+            <tr>
+            <th>Description</th>
+            <th>Operator</th>
+            <th>Example Syntax</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+            <td>Greater than</td>
+            <td>&gt;</td>
+            <td><a href="http://api.datausa.io/api/?show=naics&amp;sumlevel=0&amp;where=num_ppl:%3E10000000">&amp;where=num_ppl:&gt;10000000</a></td>
+            </tr>
+            <tr>
+            <td>Less than</td>
+            <td>&lt;</td>
+            <td><a href="http://api.datausa.io/api/?show=naics&amp;sumlevel=0&amp;where=num_ppl:%3C10000000">&amp;where=num_ppl:&lt;10000000</a></td>
+            </tr>
+            <tr>
+            <td>String starts with</td>
+            <td>^</td>
+            <td><a href="http://api.datausa.io/api/?show=naics&amp;sumlevel=0&amp;where=naics:%5E23">&amp;where=naics:^23</a></td>
+            </tr>
+            <tr>
+            <td>String ends with</td>
+            <td>$ (placed after text)</td>
+            <td><a href="http://api.datausa.io/api/?show=naics&amp;sumlevel=0&amp;where=naics:3%24">&amp;where=naics:3$</a></td>
+            </tr>
+            <tr>
+            <td>Not equal (integer)</td>
+            <td>!</td>
+            <td><a href="http://api.datausa.io/api/?show=naics&amp;sumlevel=0&amp;where=avg_wage_rank:!1&amp;order=avg_wage_rank&amp;required=avg_wage_rank">&amp;where=avg_wage_rank:!1</a></td>
+            </tr>
+            <tr>
+            <td>Not equal (string)</td>
+            <td>str!</td>
+            <td><a href="http://api.datausa.io/api/?show=geo&amp;sumlevel=state&amp;where=geo:str!04000US25">&amp;where=geo:str!04000US25</a></td>
+            </tr>
+            </tbody>
+            </table>
+          </section>
+          <section>
+            <h2>Advanced Filtering (using where)</h2>
+            <p>States with a median income > $50,000</p>
+            <code>http://api.datausa.io/api/?sort=desc<br>&show=geo<br>&required=income<br>&sumlevel=state<br>&year=latest<br>&where=income:&gt;50000
+            </code>
+          </section>
+        </section>
+        
+        
+
+
+
+
+        <!-- specific slides end here -->
+
+
+
+
+			</div>
+		</div>
+
+		<script src="/revealjs/lib/js/head.min.js"></script>
+		<script src="/revealjs/js/reveal.js"></script>
+
+		<script>
+
+			// Full list of configuration options available at:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: false,
+				progress: true,
+				history: true,
+				center: true,
+				overview: true,
+
+				transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+				// Optional reveal.js plugins
+				dependencies: [
+					{ src: '/revealjs/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: '/revealjs/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: '/revealjs/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: '/revealjs/plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: '/revealjs/plugin/zoom-js/zoom.js', async: true },
+					{ src: '/revealjs/plugin/notes/notes.js', async: true }
+				]
+			});
+
+		</script>
+
+	</body>
+</html>

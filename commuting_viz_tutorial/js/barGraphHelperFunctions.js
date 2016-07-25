@@ -1,11 +1,9 @@
 //---------------------------------------------------------------//
 // Geographical utilty and helper functions
-//P. Viechnicki, 19 April 2016
 //---------------------------------------------------------------//
 
 //---------------------------------------------------------------//
 // Look up two-letter state code
-// P. Viechnicki, 20 April 2016
 //---------------------------------------------------------------//
 
 function lookupAbbreviation(name) {
@@ -86,13 +84,16 @@ function msaMatch(stateFullName, MSAName) {
 // Get array of msa names for the reference state                //
 //---------------------------------------------------------------//
 function retrieveMsasByState(key, dictionary) {
-	var results = [];
-	for (var i = 0; i < dictionary.length; i++) {
-		if (msaMatch(key, dictionary[i][9]) == true) {
-			results.push(dictionary[i][9]);
-		}
+    var results = [];
+    for (var i = 0; i < dictionary.length; i++) {
+	var newMSA = {};
+	if (msaMatch(key, dictionary[i][7]) == true) {
+	    newMSA.name = dictionary[i][7];
+	    newMSA.cbsafp = dictionary[i][8].replace(/31000US/, '');
+	    results.push(newMSA);
 	}
-	return results;
+    }
+    return results;
 }
 
 //---------------------------------------------------------------//
@@ -107,4 +108,73 @@ function updateBarGraph(msaName) {
 	alert ("Warning: no data found for metro area: " + msaName);
 	return false;
     }
+}
+
+/*--------------------------------------------------*/
+/* Get information from a URL                       */
+/* From Haverbeke pg 308                            */
+/*--------------------------------------------------*/
+function get(url) {
+    return new Promise(function(succeed, fail) {
+      	var req = new XMLHttpRequest();
+      	req.open("GET", url, true);
+      	req.addEventListener("load", function() {
+    	    if (req.status < 400)
+        		succeed(req.responseText);
+    	    else
+        		fail(new Error("Request failed: " + req.statusText));
+      	});
+      	req.addEventListener("error", function() {
+    	    fail(new Error("Network error"));
+      	});
+      	req.send(null);
+    });
+}
+/*------------------------------------------------------------*/
+/* Return a promise whose result is the content of the url    */
+/* parsed as JSON                                             */
+/* Haverbeke pg. 309                                          */
+/*------------------------------------------------------------*/
+function getJSON(url) {
+    return get(url).then(JSON.parse);
+}
+/*------------------------------------------------------------------------*/
+/* Return a promise whose result is the content of the url                */
+/* parsed as XML doc.                                                     */
+/* http://stackoverflow.com/questions/17604071/parse-xml-using-javascript */
+/*------------------------------------------------------------------------*/
+function getXML(url) {
+    return get(url).then(function(response) {
+	if (window.DOMParser)
+	{
+	    parser = new DOMParser();
+	    xmlDoc = parser.parseFromString(response, "text/xml");
+	}
+	else // Internet Explorer
+	{
+	    xmlDoc = new ActiveXObject("Microsoft.XMLDOM");
+	    xmlDoc.async = false;
+	    xmlDoc.loadXML(response);
+	}
+	return(xmlDoc);
+    });
+}
+
+/*------------------------------------------------------------*/
+/* Build array of field, value objects from headers, data     */
+/*------------------------------------------------------------*/
+function dataFold(data, header) {
+    var result = [];
+    var arrayLength = data.length;
+
+    var elementLength = data[0].length;
+    for (var i = 0; i < arrayLength; i++) {
+    	var newObject = {};
+    	for (var j = 0; j < elementLength; j++) {
+  	    newObject[header[j]] = data[i][j];
+    	}
+    	result.push(newObject);
+    }
+
+    return result;
 }

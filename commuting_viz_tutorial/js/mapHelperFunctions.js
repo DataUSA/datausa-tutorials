@@ -101,14 +101,45 @@ function style(feature) {
 /*--------------------------------------------------------------------*/
 /* Find the leaflet feature which matches your menu selection         */
 /*--------------------------------------------------------------------*/
-function findFeature(msaName) {
+function findFeature(msafips) {
+    
     for (var feature in cbsasLayer._layers) {
-	if (cbsasLayer._layers[feature].feature.properties.CBSA_Title
-	    == msaName) {
+	if (cbsasLayer._layers[feature].feature.properties.CBSAFP
+	    == msafips) {
 	    return cbsasLayer._layers[feature];
 	}
     }
-    alert("Couldn't find a matching feature in this layer for " + msaName);
+    alert("Couldn't find a matching feature in this layer for " + msafips);
     return null;
 }
 
+/*----------------------------------------------------------------------*/
+/* Clear all markers from map                                           */
+/*----------------------------------------------------------------------*/
+function clearMarkers() {
+    for (var i = 0; i < markers.length; i++) {
+	map.removeLayer(markers[i]);
+    }
+    markers = [];
+    return true;
+}
+
+/*----------------------------------------------------------------------*/
+/* Format the information about the project and return as a label string*/
+/*----------------------------------------------------------------------*/
+function generateLabel(myCongestionProject) {
+    var total_funding = formatCurrency(myCongestionProject.total_funding_amount);
+    var federal_funding = formatCurrency(myCongestionProject.fed_funding_amount);
+    
+    var label = myCongestionProject.principal_place_cc + "<br>" + myCongestionProject.project_description + "<br>" + "Federal Funding $" + federal_funding + " out of $" + total_funding + " total";
+    
+    return label;
+}
+
+/*--------------------------------------------------------------------*/
+/* Format a plain numeric string as currency                          */
+/* http://stackoverflow.com/questions/14467433/currency-formatting-in-javascript */
+/*--------------------------------------------------------------------*/
+function formatCurrency(myDollarAmount) {
+    return myDollarAmount.replace(/(\d)(?=(\d{3})+$)/g, "$1,");
+}

@@ -183,9 +183,13 @@ function msaMatch(stateFullName, MSAName) {
 function retrieveMsasByState(key, dictionary) {
 	var results = [];
 	for (var i = 0; i < dictionary.length; i++) {
-		if (msaMatch(key, dictionary[i][9]) == true) {
-			results.push(dictionary[i][9]);
-		}
+	    if (msaMatch(key, dictionary[i][9]) == true) {
+		var matchingMSA = {};
+		matchingMSA.name = dictionary[i][9];
+		matchingMSA.cbsafp = dictionary[i][8];
+		results.push(matchingMSA);
+			//results.push(dictionary[i][9]);
+	    }
 	}
 	return results;
 }

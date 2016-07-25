@@ -10,7 +10,7 @@
 /*----------------------------------------------------------------*/
 var congestionProjects = []; //Array to store objects for the congestion projects
 var zipCodes = []
-var DEBUG_MODE = true;
+var DEBUG_MODE = false;
 
 /*------------------------------------------------------------------*/
 /* Read a local json file with all USA spending data from FY16      */
@@ -26,10 +26,10 @@ function initializeCongestionProjects() {
     }
     getJSON(assistanceFile).then(function(response) {
 	fields = ["recipient_city_name", "recipient_county_name",
-		  "recipient_zip", "federal_funding_amount",
+		  "recipient_zip", "fed_funding_amount",
 		  "total_funding_amount", "principal_place_code",
 		  "principal_place_state_code", "principal_place_zip",
-		  "project_description"];
+		  "principal_place_cc", "project_description"];
 		  
 	for (var i = 0; i < response.length; i++) {
 	    var newProject = {};
@@ -77,6 +77,7 @@ function filterCongestionProjects(msaName) {
 function retrieveStatesInMSA(msaName) {
     var statesString = msaName.split(", ")[1];
     var cleanStatesString = statesString.replace(/ Micro Area/gi, ''); //Get rid of Micro Area
+    cleanStatesString = cleanStatesString.replace(/ Metro Area/gi, ''); //also get rid of Metro Area label
     return cleanStatesString.split("-");
 }
 

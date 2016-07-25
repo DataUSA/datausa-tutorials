@@ -157,6 +157,20 @@ function maxMSA(data) {
 }
 
 /*--------------------------------------------------*/
+/* You pass in an MSA name, and it updates the bar  */
+/* chart accordingly                                */
+/*--------------------------------------------------*/
+function updateBarGraph(msa)
+{
+    var myCity = msa.replace(/Metro Area/, "");
+    var data5 = msaSubset(data4, myCity);
+
+    //Draw the commute times graph
+    buildViz(data5);
+
+}
+
+/*--------------------------------------------------*/
 /* Main functionality                               */
 /*--------------------------------------------------*/
 getJSON(url1).then(function(data) {

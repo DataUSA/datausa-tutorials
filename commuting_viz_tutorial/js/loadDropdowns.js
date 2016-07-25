@@ -57,7 +57,6 @@ $("#select_state").change(function() {
 		}
 	    }
 	}
-	//console.log(cbsasInMyState);
 	
 	//then add it to the new feature collections
 	cbsasLayer = L.geoJson(cbsasInMyState, {

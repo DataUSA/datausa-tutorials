@@ -109,7 +109,7 @@ function addMSANames(data, msaNames) {
     	newDataRow = data[i];
     	for (var j = 0; j < msaNames.length; j++) {
   	    if (msaNames[j][8] == data[i].geo) {
-      		newDataRow.msaName = msaNames[j][7];
+      		newDataRow.msaName = msaNames[j][3];
       		break;
   	    }
     	}

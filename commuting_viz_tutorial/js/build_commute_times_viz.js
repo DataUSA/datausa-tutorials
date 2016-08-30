@@ -162,8 +162,8 @@ function maxMSA(data) {
 /*--------------------------------------------------*/
 function updateBarGraph(msa)
 {
-    var myCity = msa.replace(/Metro Area/, "");
-    var data5 = msaSubset(data4, myCity);
+    // var myCity = msa.replace(/Metro Area/, "");
+    var data5 = msaSubset(data4, msa);
 
     //Draw the commute times graph
     buildViz(data5);

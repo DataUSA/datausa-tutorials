@@ -63,7 +63,7 @@ function lookupAbbreviation(name) {
     }
     if (name in stateMap) {
         return stateMap[name];
-    } 
+    }
     return "State not found";
 }
 
@@ -87,8 +87,8 @@ function retrieveMsasByState(key, dictionary) {
     var results = [];
     for (var i = 0; i < dictionary.length; i++) {
 	var newMSA = {};
-	if (msaMatch(key, dictionary[i][7]) == true) {
-	    newMSA.name = dictionary[i][7];
+	if (msaMatch(key, dictionary[i][3]) == true) {
+	    newMSA.name = dictionary[i][3];
 	    newMSA.cbsafp = dictionary[i][8].replace(/31000US/, '');
 	    results.push(newMSA);
 	}

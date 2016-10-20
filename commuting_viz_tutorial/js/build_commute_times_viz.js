@@ -100,22 +100,19 @@ function buildViz(data) {
 /* Add the names of each msa to the objects in the array */
 /*-------------------------------------------------------*/
 function addMSANames(data, msaNames) {
-    var dataWithNames = [];
 
-    //Only need fields 8 and 9
-    //Add field 7 to back end of data where field 8 matches geo
-    for (var i = 0; i < data.length; i++) {
-    	var newDataRow = {};
-    	newDataRow = data[i];
-    	for (var j = 0; j < msaNames.length; j++) {
-  	    if (msaNames[j][8] == data[i].geo) {
-      		newDataRow.msaName = msaNames[j][3];
-      		break;
-  	    }
-    	}
-    	dataWithNames.push(newDataRow);
-    }
-    return dataWithNames;
+    var nameLookup = dataFold(msaNames.data, msaNames.headers)
+      .reduce(function(obj, d) {
+        obj[d.id] = d;
+        return obj;
+      }, {});
+
+    data.forEach(function(d) {
+      d.msaName = nameLookup[d.geo].display_name;
+    });
+
+    return data;
+
 }
 
 /*-----------------------------------------------------------------*/
@@ -181,7 +178,7 @@ getJSON(url1).then(function(data) {
     return getJSON(url2);
 }).then(function(msaNames) {
     //Add the explicit MSA names for each geo code
-    var data3 = addMSANames(commuteTimes, msaNames.data);
+    var data3 = addMSANames(commuteTimes, msaNames);
 
     //Copy array of data to global array so we can reuse it
     for (var i = 0; i < data3.length; i++) {

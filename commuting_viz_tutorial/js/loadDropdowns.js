@@ -8,7 +8,7 @@
 /*-------------------------------------------------------------------*/
 var cbsasLayer; // Handle for leaflet layer
 var msas; //Holds list of msas in this state
-var msaURL = "http://api.datausa.io/attrs/geo/?sumlevel=msa";
+var msaURL = "https://api.datausa.io/attrs/geo/?sumlevel=msa";
 var constructionIcon = L.icon({
     iconUrl: './js/images/construction.png',
     shadowUrl: './js/images/marker-shadow.png'});

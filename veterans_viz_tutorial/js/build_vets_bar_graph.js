@@ -6,7 +6,7 @@
 /* Globals                                         */
 /*-------------------------------------------------*/
 //URL for dataUSA api call
-var vets_url = "http://api.datausa.io/api/?sumlevel=state&show=geo&required=conflict_total%2Cconflict_wwii%2Cconflict_korea%2Cconflict_vietnam%2Cconflict_gulf90s%2Cconflict_gulf01";
+var vets_url = "https://api.datausa.io/api/?sumlevel=state&show=geo&required=conflict_total%2Cconflict_wwii%2Cconflict_korea%2Cconflict_vietnam%2Cconflict_gulf90s%2Cconflict_gulf01";
 
 //d3plus visualization object
 var viz_bar;

@@ -122,8 +122,8 @@
           <section>
             <h1>Data vs. Attributes</h1>
             <p>We can divide the API into 2 different types of endpoints</p>
-            <code>http://api.datausa.io/data/</code>
-            <code>http://api.datausa.io/attrs/</code>
+            <code>https://api.datausa.io/data/</code>
+            <code>https://api.datausa.io/attrs/</code>
           </section>
           <section>
             <h2>Data vs. Attributes</h2>
@@ -160,7 +160,7 @@
             <table>
               <tr>
                 <td>All geos</td>
-                <td>http://api.datausa.io/attrs/geo/</td>
+                <td>https://api.datausa.io/attrs/geo/</td>
               </tr>
               <tr>
                 <td>Get geo by ID</td>
@@ -200,7 +200,7 @@
 
           <section>
             <h2>Find all Attributes (self-reflecting API)</h2>
-            http://api.datausa.io/attrs/list/
+            https://api.datausa.io/attrs/list/
           </section>
         </section>
 
@@ -211,7 +211,7 @@
           </section>
           <section>
             <h2>A (very) simple Example</h2>
-            http://api.datausa.io/api/?show=cip&sumlevel=all
+            https://api.datausa.io/api/?show=cip&sumlevel=all
           </section>
           <section>
             <h2>Supported Query Parameters</h2>
@@ -271,7 +271,7 @@
           </section>
           <section>
             <h2>Logic Layer or Smart Substitutions</h2>
-            <pre>http://api.datausa.io/api/?show=soc&sumlevel=2&required=num_ppl&geo=16000US0150000</pre>
+            <pre>https://api.datausa.io/api/?show=soc&sumlevel=2&required=num_ppl&geo=16000US0150000</pre>
           </section>
         </section>
         
@@ -283,7 +283,7 @@
           <section>
             <h2>Downloading as CSV</h2>
             <p>To download the data as a CSV, simply add csv into the URL as follows:</p>
-            <code>http://api.datausa.io/api/csv/?show=cip<br>&sumlevel=2<br>&required=grads_men,grads_women</code>
+            <code>https://api.datausa.io/api/csv/?show=cip<br>&sumlevel=2<br>&required=grads_men,grads_women</code>
           </section>
           <section>
             <h2>Advanced Filtering (using where)</h2>
@@ -299,32 +299,32 @@
             <tr>
             <td>Greater than</td>
             <td>&gt;</td>
-            <td><a href="http://api.datausa.io/api/?show=naics&amp;sumlevel=0&amp;where=num_ppl:%3E10000000">&amp;where=num_ppl:&gt;10000000</a></td>
+            <td><a href="https://api.datausa.io/api/?show=naics&amp;sumlevel=0&amp;where=num_ppl:%3E10000000">&amp;where=num_ppl:&gt;10000000</a></td>
             </tr>
             <tr>
             <td>Less than</td>
             <td>&lt;</td>
-            <td><a href="http://api.datausa.io/api/?show=naics&amp;sumlevel=0&amp;where=num_ppl:%3C10000000">&amp;where=num_ppl:&lt;10000000</a></td>
+            <td><a href="https://api.datausa.io/api/?show=naics&amp;sumlevel=0&amp;where=num_ppl:%3C10000000">&amp;where=num_ppl:&lt;10000000</a></td>
             </tr>
             <tr>
             <td>String starts with</td>
             <td>^</td>
-            <td><a href="http://api.datausa.io/api/?show=naics&amp;sumlevel=0&amp;where=naics:%5E23">&amp;where=naics:^23</a></td>
+            <td><a href="https://api.datausa.io/api/?show=naics&amp;sumlevel=0&amp;where=naics:%5E23">&amp;where=naics:^23</a></td>
             </tr>
             <tr>
             <td>String ends with</td>
             <td>$ (placed after text)</td>
-            <td><a href="http://api.datausa.io/api/?show=naics&amp;sumlevel=0&amp;where=naics:3%24">&amp;where=naics:3$</a></td>
+            <td><a href="https://api.datausa.io/api/?show=naics&amp;sumlevel=0&amp;where=naics:3%24">&amp;where=naics:3$</a></td>
             </tr>
             <tr>
             <td>Not equal (integer)</td>
             <td>!</td>
-            <td><a href="http://api.datausa.io/api/?show=naics&amp;sumlevel=0&amp;where=avg_wage_rank:!1&amp;order=avg_wage_rank&amp;required=avg_wage_rank">&amp;where=avg_wage_rank:!1</a></td>
+            <td><a href="https://api.datausa.io/api/?show=naics&amp;sumlevel=0&amp;where=avg_wage_rank:!1&amp;order=avg_wage_rank&amp;required=avg_wage_rank">&amp;where=avg_wage_rank:!1</a></td>
             </tr>
             <tr>
             <td>Not equal (string)</td>
             <td>str!</td>
-            <td><a href="http://api.datausa.io/api/?show=geo&amp;sumlevel=state&amp;where=geo:str!04000US25">&amp;where=geo:str!04000US25</a></td>
+            <td><a href="https://api.datausa.io/api/?show=geo&amp;sumlevel=state&amp;where=geo:str!04000US25">&amp;where=geo:str!04000US25</a></td>
             </tr>
             </tbody>
             </table>
@@ -332,7 +332,7 @@
           <section>
             <h2>Advanced Filtering (using where)</h2>
             <p>States with a median income > $50,000</p>
-            <code>http://api.datausa.io/api/?sort=desc<br>&show=geo<br>&required=income<br>&sumlevel=state<br>&year=latest<br>&where=income:&gt;50000
+            <code>https://api.datausa.io/api/?sort=desc<br>&show=geo<br>&required=income<br>&sumlevel=state<br>&year=latest<br>&where=income:&gt;50000
             </code>
           </section>
         </section>

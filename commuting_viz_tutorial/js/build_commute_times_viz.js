@@ -6,11 +6,11 @@
 /* Globals                                         */
 /*-------------------------------------------------*/
 //URL for mean commute times api call
-var url1 = "http://api.datausa.io/api/?show=geo&sumlevel=msa&required=mean_commute_minutes&year=latest";
+var url1 = "https://api.datausa.io/api/?show=geo&sumlevel=msa&required=mean_commute_minutes&year=latest";
 //URL for msa names dictionary
-var url2 = "http://api.datausa.io/attrs/geo/?sumlevel=msa";
+var url2 = "https://api.datausa.io/attrs/geo/?sumlevel=msa";
 //URL for national average commute times
-var url3 = "http://api.datausa.io/api/?required=mean_commute_minutes&show=geo&sumlevel=all&year=latest&geo=01000US";
+var url3 = "https://api.datausa.io/api/?required=mean_commute_minutes&show=geo&sumlevel=all&year=latest&geo=01000US";
 
 //More globals to hold stuff while getting asynchronous requests
 var commuteTimes = [];

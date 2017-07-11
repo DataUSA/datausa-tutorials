@@ -1,0 +1,54 @@
+<!doctype html>
+<html>
+
+  <head>
+    <title>D3plus</title>
+    <!-- load in JS file -->
+    <script src="https://d3plus.org/js/d3plus.full.min.js"></script>
+    <style>
+    .greendot {
+      color: green;
+    }
+    </style>
+  </head>
+
+  <body>
+    <div id="viz"></div>
+  </body>
+
+  <script>
+
+  function datafold(json) {
+    return json.data.map(function(data) {
+      return json.headers.reduce(function(obj, header, i) {
+        obj[header] = data[i];
+        return obj;
+      }, {});
+    });
+  }
+
+  var myViz = d3plus.viz()
+    // .axes({"mirror": true})
+    .container("#viz")
+    .type("scatter")
+    .data("data.csv")
+    .id("State")
+    .size("Crude Rate")
+    .x("Population")
+    .y("Deaths")
+    // .color(function(d) {
+    //   if (d.grads_hawaiian > 100) return "red";
+    //   else return "green";
+    // })
+    // .tooltip(["grads_hawaiian","grads_men","grads_women"])
+    // .format({
+    //   "text": function(text) {
+    //     if (text.indexOf("grads_") === 0) return d3plus.string.title(text.split("_")[1]);
+    //     return text;
+    //   }
+    // })
+    .draw();
+
+  </script>
+
+</html>

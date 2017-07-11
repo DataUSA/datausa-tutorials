@@ -1,0 +1,88 @@
+"Notes"	"State"	"State Code"	Deaths	Population	Crude Rate
+	"Alabama"	"01"	756454	74289242	1018.3
+	"Alaska"	"02"	54568	10882235	501.4
+	"Arizona"	"04"	727163	95433971	762.0
+	"Arkansas"	"05"	459592	45148947	1017.9
+	"California"	"06"	3785617	579467440	653.3
+	"Colorado"	"08"	487419	76533739	636.9
+	"Connecticut"	"09"	470248	56278066	835.6
+	"Delaware"	"10"	118539	13744533	862.4
+	"District of Columbia"	"11"	84248	9476069	889.1
+	"Florida"	"12"	2742073	287522432	953.7
+	"Georgia"	"13"	1097688	146579125	748.9
+	"Hawaii"	"15"	150327	20969052	716.9
+	"Idaho"	"16"	173778	23470176	740.4
+	"Illinois"	"17"	1658301	202765885	817.8
+	"Indiana"	"18"	905500	101419403	892.8
+	"Iowa"	"19"	448134	47988398	933.8
+	"Kansas"	"20"	395963	44581496	888.2
+	"Kentucky"	"21"	658264	67652615	973.0
+	"Louisiana"	"22"	667935	72153365	925.7
+	"Maine"	"23"	203181	21016803	966.8
+	"Maryland"	"24"	704451	90122134	781.7
+	"Massachusetts"	"25"	872309	103817651	840.2
+	"Michigan"	"26"	1408583	159328066	884.1
+	"Minnesota"	"27"	616417	82866362	743.9
+	"Mississippi"	"28"	462632	46706097	990.5
+	"Missouri"	"29"	888581	93469148	950.7
+	"Montana"	"30"	138633	15316548	905.1
+	"Nebraska"	"31"	245039	28553391	858.2
+	"Nevada"	"32"	298501	39499380	755.7
+	"New Hampshire"	"33"	163813	20709101	791.0
+	"New Jersey"	"34"	1146150	138873634	825.3
+	"New Mexico"	"35"	245563	31422101	781.5
+	"New York"	"36"	2433592	308265298	789.4
+	"North Carolina"	"37"	1219415	143738426	848.4
+	"North Dakota"	"38"	94912	10640958	891.9
+	"Ohio"	"39"	1749549	183658544	952.6
+	"Oklahoma"	"40"	577843	58123796	994.2
+	"Oregon"	"41"	504480	58993099	855.2
+	"Pennsylvania"	"42"	2048245	200549041	1021.3
+	"Rhode Island"	"44"	156439	16920506	924.6
+	"South Carolina"	"45"	637302	70337127	906.1
+	"South Dakota"	"46"	113115	12685253	891.7
+	"Tennessee"	"47"	932345	97688589	954.4
+	"Texas"	"48"	2587607	378285482	684.0
+	"Utah"	"49"	225263	41054412	548.7
+	"Vermont"	"50"	83615	9927255	842.3
+	"Virginia"	"51"	939147	123069007	763.1
+	"Washington"	"53"	756324	102855067	735.3
+	"West Virginia"	"54"	340812	29294522	1163.4
+	"Wisconsin"	"55"	754553	89207599	845.8
+	"Wyoming"	"56"	67966	8545915	795.3
+"Total"			39458188	4791896501	823.4
+"---"
+"Dataset: Compressed Mortality, 1999-2014"
+"Query Parameters:"
+"Title:"
+"2013 Urbanization: All"
+"Age Group: All"
+"Gender: All"
+"Hispanic Origin: All"
+"ICD-10 Codes: All"
+"Race: All"
+"States: All"
+"Year: All, 1999 to 2014"
+"Group By: State"
+"Show Totals: True"
+"Show Zero Values: False"
+"Show Suppressed: False"
+"Calculate Rates Per: 100,000"
+"---"
+"Help: See http://wonder.cdc.gov/wonder/help/cmf.html for more information."
+"---"
+"Query Date: Jul 11, 2016 11:24:50 AM"
+"---"
+"Suggested Citation: Centers for Disease Control and Prevention, National Center for Health Statistics. Compressed Mortality File"
+"1999-2014 on CDC WONDER Online Database, released December 2015. Data are from the Compressed Mortality File 1999-2014 Series 20"
+"No. 2T, 2015, as compiled from data provided by the 57 vital statistics jurisdictions through the Vital Statistics Cooperative"
+"Program. Accessed at http://wonder.cdc.gov/cmf-icd10.html on Jul 11, 2016 11:24:50 AM"
+"---"
+Caveats:
+"1. About sub-national population figures for regions, divisions, states and counties: population figures for 1999 are from the"
+"1990-1999 series of bridged-race intercensal estimates of the July 1 resident population; population figures for 2000 and 2010"
+"are bridged-race April 1 census counts; population figures for 2001-2009 are from the revised 2000-2009 series of bridged-race"
+"intercensal estimates of the July 1 resident population; and population figures for 2011-2014 are bridged-race postcensal"
+"estimates of the July 1 resident population, from the Vintage 2014 series released by NCHS on June 30, 2015."
+"2. The population figures used in the calculation of death rates for the age group 'under 1 year' are the estimates of the"
+"resident population that is under one year of age. More information: http://wonder.cdc.gov/wonder/help/cmf.html#Age Group."

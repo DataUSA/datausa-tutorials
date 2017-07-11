@@ -1,0 +1,168 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>Intros and Mission</title>
+
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+		<link rel="stylesheet" href="/revealjs/css/reveal.css">
+		<link rel="stylesheet" href="/revealjs/css/theme/datausa.css" id="theme">
+	  <link rel="stylesheet" type="text/css" href="/css/font-awesome-4.4.0/css/font-awesome.min.css">
+
+		<!-- Code syntax highlighting -->
+		<link rel="stylesheet" href="/revealjs/lib/css/zenburn.css">
+
+		<style>
+			.inline {
+				display: inline-block;
+				margin: 25px !important;
+				vertical-align: middle !important;
+			}
+			i {
+				color: rgba(255, 255, 255, 0.4);
+				font-size: 300px !important;
+			}
+			.noborder {
+				background: none !important;
+				border: none !important;
+				box-shadow: none !important;
+			}
+			ul.small {
+				font-size: 18px !important;
+			}
+			ul.small li {
+				margin: 5px 0 !important;
+			}
+			.bottom {
+				bottom: 0;
+				position: absolute;
+			}
+		</style>
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? '/revealjs/css/print/pdf.css' : '/revealjs/css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+
+		<!--[if lt IE 9]>
+		<script src="/revealjs/lib/js/html5shiv.js"></script>
+		<![endif]-->
+
+	</head>
+
+	<body>
+
+		<div class="reveal">
+			<div class="slides">
+
+
+
+        <!-- specific slides start here -->
+
+
+
+
+        <section>
+          <section>
+            <h1>Introductions</h1>
+            <i class="fa fa-comments"></i>
+          </section>
+          <section>
+            <h2>Datawheel</h2>
+						<div class="left">
+							<p>Dave Landry</p>
+	            <img class="stretch noborder" width="300" src="/img/dave.jpg">
+						</div>
+						<div class="right">
+							<p>Jonathan Speiser</p>
+	            <img class="stretch noborder" width="300" src="/img/jonathan.jpg">
+						</div>
+          </section>
+          <section>
+            <h2>We Helped Make Data USA</h2>
+						<img class="stretch noborder" src="/img/datausa.png">
+          </section>
+          <section>
+            <h2>Who are you?</h2>
+            <ul>
+              <li class="fragment">What's your job?</li>
+              <li class="fragment">What are you excited to learn?</li>
+              <li class="fragment">What do you do for fun?</li>
+            </ul>
+          </section>
+				</section>
+
+        <section>
+          <section>
+            <h1>Mission Statement</h1>
+            <p class="fragment">
+							To create a one-page data story<br />using the Data USA API.
+						</p>
+            <p class="fragment">
+							<em>Preferably with a lens on health.</em>
+						</p>
+          </section>
+          <section>
+            <h2>What is a Data Story?</h2>
+            <ul>
+              <li class="fragment"><a href="https://pudding.cool/2017/04/beer/" target="_blank">Craft Beer</a></li>
+							<li class="fragment"><a href="https://www.washingtonpost.com/graphics/business/wonk/housing/overview/" target="_blank">Housing Divide</a></li>
+							<li class="fragment"><a href="https://www.nytimes.com/interactive/2017/05/25/sports/basketball/lebron-career-playoff-points-record.html" target="_blank">LeBron James</a></li>
+							<li class="fragment"><a href="https://www.theguardian.com/us-news/2015/oct/20/planned-parenthood-defund-texas" target="_blank">Planned Parenthood</a></li>
+							<li class="fragment"><a href="" target="_blank">Jonathan made one too!</a></li>
+            </ul>
+          </section>
+				</section>
+
+
+
+
+        <!-- specific slides end here -->
+
+
+
+
+			</div>
+		</div>
+
+		<script src="/revealjs/lib/js/head.min.js"></script>
+		<script src="/revealjs/js/reveal.js"></script>
+
+		<script>
+
+			// Full list of configuration options available at:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: false,
+				progress: true,
+				history: false,
+				center: true,
+				overview: true,
+
+				transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+				// Optional reveal.js plugins
+				dependencies: [
+					{ src: '/revealjs/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: '/revealjs/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: '/revealjs/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: '/revealjs/plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: '/revealjs/plugin/zoom-js/zoom.js', async: true },
+					{ src: '/revealjs/plugin/notes/notes.js', async: true }
+				]
+			});
+
+		</script>
+
+	</body>
+</html>

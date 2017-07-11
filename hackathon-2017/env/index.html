@@ -1,0 +1,179 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>Developing Locally Using Github</title>
+
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+		<link rel="stylesheet" href="/revealjs/css/reveal.css">
+		<link rel="stylesheet" href="/revealjs/css/theme/datausa.css" id="theme">
+	  <link rel="stylesheet" type="text/css" href="/css/font-awesome-4.4.0/css/font-awesome.min.css">
+
+		<!-- Code syntax highlighting -->
+		<link rel="stylesheet" href="/revealjs/lib/css/zenburn.css">
+
+		<style>
+			.inline {
+				display: inline-block;
+				margin: 25px !important;
+				vertical-align: middle !important;
+			}
+			i {
+				color: rgba(255, 255, 255, 0.4);
+				font-size: 300px !important;
+			}
+			.noborder {
+				background: none !important;
+				border: none !important;
+				box-shadow: none !important;
+			}
+			ul.small {
+				font-size: 18px !important;
+			}
+			ul.small li {
+				margin: 5px 0 !important;
+			}
+			.bottom {
+				bottom: 0;
+				position: absolute;
+			}
+		</style>
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? '/revealjs/css/print/pdf.css' : '/revealjs/css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+
+		<!--[if lt IE 9]>
+		<script src="/revealjs/lib/js/html5shiv.js"></script>
+		<![endif]-->
+
+	</head>
+
+	<body>
+
+		<div class="reveal">
+			<div class="slides">
+
+
+
+        <!-- specific slides start here -->
+
+
+
+
+        <section>
+          <section>
+            <h1>Required Software</h1>
+            <i class="fa fa-book"></i>
+          </section>
+          <section>
+            <h2>Web Browser</h2>
+            <img class="stretch noborder" src="/img/browsers.png">
+            <p class="fragment">I don't care which one you use.</p>
+            <p class="fragment">...but I use Chrome because I think it's the best, and I'll make fun of you if you use Internet Explorer.</p>
+          </section>
+          <section>
+            <h2>Text Editor</h2>
+            <img class="inline noborder" src="/img/atom.png" height="500px">
+            <ul class="inline">Suggestions:
+              <li><a target="_blank" href="https://atom.io/">Atom</a></li>
+              <li><a target="_blank" href="http://www.sublimetext.com/">Sublime Text</a></li>
+              <li><a target="_blank" href="https://macromates.com/">TextMate</a></li>
+            </ul>
+          </section>
+          <section>
+            <h2>Command-line Shell</h2>
+            <div class="left">
+              <p>Terminal (Mac)</p>
+              <img class="inline noborder" src="/img/terminal.png">
+            </div>
+            <div class="right">
+              <p>PowerShell (Windows)</p>
+              <img class="inline noborder" src="/img/powershell.png">
+            </div>
+          </section>
+					<section>
+						<h2>Python</h2>
+            <img class="stretch noborder" src="/img/python.png">
+						https://www.python.org/
+					</section>
+					<section>
+						<h2>Github Desktop</h2>
+            <img class="stretch noborder" src="/img/github-desktop.png">
+						https://desktop.github.com/
+					</section>
+          <section>
+            <h2>Take a minute to download<br />any programs you need.</h2>
+            <ul>
+              <li>Web Browser</li>
+              <li>Text Editor</li>
+              <li>Command-line Shell</li>
+              <li>Python</li>
+              <li>Github Desktop</li>
+            </ul>
+          </section>
+          <section>
+            <h2>Testing Python</h2>
+            <p>
+              maxOS Terminal:
+            </p>
+            <pre><code class="bash">python --version</code></pre>
+            <p>
+              Windows PowerShell:
+            </p>
+            <pre><code class="bash">Get-Command python | fl *</code></pre>
+          </section>
+
+
+
+
+        <!-- specific slides end here -->
+
+
+
+
+			</div>
+		</div>
+
+		<script src="/revealjs/lib/js/head.min.js"></script>
+		<script src="/revealjs/js/reveal.js"></script>
+
+		<script>
+
+			// Full list of configuration options available at:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: false,
+				progress: true,
+				history: false,
+				center: true,
+				overview: true,
+
+				transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+				// Optional reveal.js plugins
+				dependencies: [
+					{ src: '/revealjs/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: '/revealjs/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: '/revealjs/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: '/revealjs/plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: '/revealjs/plugin/zoom-js/zoom.js', async: true },
+					{ src: '/revealjs/plugin/notes/notes.js', async: true }
+				]
+			});
+
+		</script>
+
+	</body>
+</html>

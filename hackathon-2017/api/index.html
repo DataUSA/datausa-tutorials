@@ -73,12 +73,12 @@
 
 
         <section>
-          
+
           <section>
             <h1>Data USA API</h1>
             <i class="fa fa-eye"></i>
           </section>
-          
+
           <section>
             <h1>What is an API?</h1>
             <blockquote>
@@ -210,9 +210,13 @@
             <i class="fa fa-server"></i>
           </section>
           <section>
-            <h2>A (very) simple Example</h2>
-            https://api.datausa.io/api/?show=cip&sumlevel=all
+            <h2>An Example</h2>
+            https://api.datausa.io/api/?show=geo&sumlevel=state&insurance=no_insurance&required=hc_pop
           </section>
+					<section>
+						<h2>Only get latest year</h2>
+						https://api.datausa.io/api/?show=geo&sumlevel=state&insurance=no_insurance&required=hc_pop&<strong>year=latest</strong>
+					</section>
           <section>
             <h2>Supported Query Parameters</h2>
             <table>
@@ -273,8 +277,12 @@
             <h2>Logic Layer or Smart Substitutions</h2>
             <pre>https://api.datausa.io/api/?show=soc&sumlevel=2&required=num_ppl&geo=16000US0150000</pre>
           </section>
+					<section>
+						<h2>For Comprehensive Documentation</h2>
+						<pre>https://github.com/DataUSA/datausa-api/wiki</pre>
+					</section>
         </section>
-        
+
         <section>
           <section>
             <h1>Some advanced features</h1>
@@ -283,7 +291,7 @@
           <section>
             <h2>Downloading as CSV</h2>
             <p>To download the data as a CSV, simply add csv into the URL as follows:</p>
-            <code>https://api.datausa.io/api/csv/?show=cip<br>&sumlevel=2<br>&required=grads_men,grads_women</code>
+            <code>https://api.datausa.io/api/csv/?show=geo<br>&sumlevel=state<br>&required=hc_pop&insurance=no_insurance</code>
           </section>
           <section>
             <h2>Advanced Filtering (using where)</h2>
@@ -336,8 +344,8 @@
             </code>
           </section>
         </section>
-        
-        
+
+
 
 
 

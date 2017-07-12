@@ -211,11 +211,11 @@
           </section>
           <section>
             <h2>An Example</h2>
-            https://api.datausa.io/api/?show=geo&sumlevel=state&insurance=no_insurance&required=hc_pop
+            https://api.datausa.io/api/?show=geo&sumlevel=state&insurance=no_insurance
           </section>
 					<section>
 						<h2>Only get latest year</h2>
-						https://api.datausa.io/api/?show=geo&sumlevel=state&insurance=no_insurance&required=hc_pop&<strong>year=latest</strong>
+						https://api.datausa.io/api/?show=geo&sumlevel=state&insurance=no_insurance&<strong>year=latest</strong>
 					</section>
           <section>
             <h2>Supported Query Parameters</h2>
@@ -339,8 +339,8 @@
           </section>
           <section>
             <h2>Advanced Filtering (using where)</h2>
-            <p>States with a median income > $50,000</p>
-            <code>https://api.datausa.io/api/?sort=desc<br>&show=geo<br>&required=income<br>&sumlevel=state<br>&year=latest<br>&where=income:&gt;50000
+            <p>States with Emergency Room Visits Filtering</p>
+            <code style="font-size: 18px">https://api.datausa.io/api/?year=latest<br>&show=geo&sumlevel=state<br>&cohort=surgical<br>&where=patients_having_an_emergency_room_visit_within_30_days:&gt;10000
             </code>
           </section>
         </section>

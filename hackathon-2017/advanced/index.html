@@ -76,11 +76,18 @@
 
           <section>
             <h1>Advanced Concepts</h1>
-            <i class="fa fa-wrench"></i>
+						<ul>
+							<li>Integrating Outside Data</li>
+							<li>Design Best Practices</li>
+						</ul>
           </section>
 
+        </section>
+
+				<section>
+
           <section>
-            <h1>Integrating outside data</h1>
+            <h1>Integrating<br />Outside Data</h1>
             <blockquote>
 							You found a great data set on the web and want to mash it up with Data USA.
         		</blockquote>
@@ -100,14 +107,109 @@
           <section>
             <h2>Performing Joins: Part III</h2>
 						<h3>Assuming two csv files with columns of year and geo</h3>
-						<pre><code class="python" style="margin-left:-600px">
-							import pandas as pd
-							df_datausa = pd.read_csv(...)
-							df_other = pd.read_csv(...)
-							print df_datausa.merge(df_other, how="left", on=["year", "geo"])
+						<pre><code class="python">
+ import pandas as pd
+ df_datausa = pd.read_csv(...)
+ df_other = pd.read_csv(...)
+ print df_datausa.merge(df_other, how="left", on=["year", "geo"])
 						</code></pre>
           </section>
-        </section>
+
+				</section>
+
+				<section>
+
+          <section>
+            <h1>Design<br />Best Practices</h1>
+						<i class="fa fa-paint-brush"></i>
+          </section>
+				  <section>
+				    <h1>Encoding Data in Visualization</h1>
+				    <p>There are 4 primary display methods.</p>
+				    <ul>
+							<li class="fragment">Shape</li>
+							<li class="fragment">Position</li>
+				      <li class="fragment">Size</li>
+				      <li class="fragment">Color</li>
+				    </ul>
+				  </section>
+				  <section>
+				    <h3>Encoding Data in Visualization</h3>
+				    <h1>Shape</h1>
+				    <ul>
+				      <li class="fragment">Geometry</li>
+				      <li class="fragment">Iconography</li>
+				    </ul>
+				  </section>
+				  <section>
+				    <h3>Encoding Data in Visualization</h3>
+				    <h1>Position</h1>
+				    <ul>
+				      <li class="fragment">X/Y</li>
+				      <li class="fragment">Rotation</li>
+				    </ul>
+				  </section>
+				  <section>
+				    <h3>Encoding Data in Visualization</h3>
+				    <h1>Size</h1>
+				    <ul>
+				      <li class="fragment">Circle radius</li>
+				      <li class="fragment">Rectangle width/height</li>
+				      <li class="fragment">Arc radius</li>
+				      <li class="fragment">Line/stroke width</li>
+				    </ul>
+				  </section>
+				  <section>
+				    <h3>Encoding Data in Visualization</h3>
+				    <h1>Color</h1>
+				    <ul>
+				      <li class="fragment">Hue</li>
+				      <li class="fragment">Saturation</li>
+				      <li class="fragment">Lightness</li>
+				      <li class="fragment">Opacity</li>
+				    </ul>
+				  </section>
+
+				  <section>
+				    <h1>Telling a Story<br />with Data</h1>
+				    <h2 class="fragment">Guided vs Exploratory</h2>
+				  </section>
+				  <section>
+				    <h2>Guided Narrative</h2>
+				    <p>
+				      Visualization collaborating with text to tell a directed story or to make a point.
+				    </p>
+				    <p class="fragment">
+				      Think one page scrollers or visualizations embedded in articles.
+				    </p>
+				  </section>
+				  <section>
+				    <h2>Defining Characteristic</h2>
+				    <p>
+				      Tends to generally have a stronger focus on design and mood, as there is no utilitarian interface to get in the way.
+				    </p>
+				  </section>
+				  <section>
+				    <h2>Exploratory Narrative</h2>
+				    <p>
+				      Visualizations that foster a free user-experience, letting them draw their own hypotheses and conclusions.
+				    </p>
+				    <p class="fragment">
+				      Usually some sort of sandbox or interface with a lot of user defined control.
+				    </p>
+				  </section>
+				  <section>
+				    <h2>Defining Characteristic</h2>
+				    <p>
+				      Stronger attention needs to be paid to the organization of user interface elements, to make them both visually unobstrusive and easy to learn.
+				    </p>
+				  </section>
+				  <section>
+				    <h2>Which one is your project?</h2>
+				    <h1>Guided or Exploratory</h1>
+				  </section>
+
+				</section>
 
         <!-- specific slides end here -->
 

@@ -106,13 +106,12 @@
           </section>
           <section>
             <h2>Performing Joins: Part III</h2>
-						<h3>Assuming two csv files with columns of year and geo</h3>
-						<pre><code class="python">
- import pandas as pd
- df_datausa = pd.read_csv(...)
- df_other = pd.read_csv(...)
- print df_datausa.merge(df_other, how="left", on=["year", "geo"])
-						</code></pre>
+						<h3>Assuming two .csv files with columns of year and geo</h3>
+						<pre><code class="python">import pandas as pd
+df_datausa = pd.read_csv(...)
+df_other = pd.read_csv(...)
+df_merged = df_datausa.merge(df_other, how="left", on=["year", "geo"])
+df_merged.to_csv("merged_data.csv")</code></pre>
           </section>
 
 				</section>

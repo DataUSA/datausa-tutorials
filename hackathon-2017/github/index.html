@@ -90,7 +90,8 @@
             </ul>
           </section>
           <section>
-            <h2>Let's Sign up for an account</h2>
+            <h2>Sign up for an account</h2>
+						<p><em>(if you haven't already)</em></p>
             <img class="stretch noborder" src="/img/github-signup.png">
             <p>www.github.com</p>
           </section>
@@ -129,7 +130,7 @@
 
         <section>
           <section>
-            <h1>Syncing with<br />you Computer</h1>
+            <h1>Syncing with<br />your Computer</h1>
             <i class="fa fa-laptop"></i>
           </section>
           <section>
@@ -142,19 +143,20 @@
             </ul>
           </section>
 					<section>
-						<h2>Did you download Github Desktop?</h2>
+						<h2>Open Github Desktop</h2>
+						<small>Log into the application with your github.com account and finish the installation.</small>
             <img class="stretch noborder" src="/img/github-desktop.png">
 						https://desktop.github.com/
 					</section>
           <section>
             <h2>Clone your Repository</h2>
-						<small>After following the setup instructions, including logging into your account and installing any additional software, download your repository by using the menu hidden beneath the plus sign in the top left.</small>
+						<small>After finishing the Github Desktop setup, go back to your web browser and click "Open in Desktop" from the "Clone or Download" window.</small>
             <img class="stretch noborder" src="/img/github-clone.png">
           </section>
           <section>
             <h2>Changing Files Locally</h2>
             <p>
-              With your repository on your machine now, open the folder in your text editor. In there, you should see a list of the files in a panel on the left.
+              Your repository has now been downloaded as a folder. Open the new folder in your text editor, where you should see a list of the files in a panel on the left.
             </p>
             <br>
             <p>
@@ -172,23 +174,12 @@
           </section>
           <section>
             <h2>Push example</h2>
-            <blockquote>
-              <ul>
-                <li>Commit: "created a new logo"
-                  <ul>
-                    <li>index.html</li>
-                    <li>logo.png</li>
-                  </ul>
-                </li>
-                <br>
-                <li>Commit: "changed background color and title"
-                  <ul>
-                    <li>styles.css</li>
-                    <li>index.html</li>
-                  </ul>
-                </li>
-              </ul>
-            </blockquote>
+            <pre><code class="js">Commit: "created a new logo"
+  index.html
+  logo.png></code></pre>
+						<pre><code class="js">Commit: "changed background color and title"
+  styles.css
+  index.html</code></pre>
           </section>
           <section>
             <h2>Syncing with Github.com</h2>
@@ -216,7 +207,7 @@
           <section>
             <h2>Using the Shell</h2>
             <p>
-              Powershell (Windows) and Terminal (Mac) are programs that just interact with your computer through text commands. You can make folders, move files, and even launch applications.
+              PowerShell and Terminal are programs that interact with your computer through text commands. You can make folders, move files, and even launch applications.
             </p>
             <p>
               Commands are issued by writing the command and pressing the return key. Only 1 command can be issued at a time.
@@ -227,11 +218,12 @@
             <p>
               When interacting with your computer through a shell, you are always issuing commands from a specific folder on your computer.
             </p>
-            <p>To move into a specific folder, use the cd command:</p>
+            <p>To move into a folder, use the <u>c</u>hange <u>d</u>irectory command:</p>
             <pre><code class="bash">cd /path/to/my/folder/</code></pre>
+						<p class="fragment">Use cd to go into your repository folder.</p>
           </section>
           <section>
-            <h2>Actually Running the Site</h2>
+            <h2>Starting a Server</h2>
             <p>
               OS X Terminal:
             </p>

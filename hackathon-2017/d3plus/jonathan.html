@@ -1,0 +1,92 @@
+
+<!doctype html>
+<html>
+  <head>
+
+    <meta charset="utf-8">
+
+    <style>
+
+      body {
+        font-family: sans-serif;
+        font-size: 1.2em;
+        line-height: 1.6;
+        padding: 5% 15%;
+      }
+
+      .list {
+        font-weight: bold;
+      }
+
+    </style>
+
+    <script src="https://d3plus.org/js/d3plus-geomap.v0.4.full.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/4.9.1/d3.min.js"></script>
+
+  </head>
+
+  <body>
+
+    <h3>Which States and Territories Will Be Hit Hardest by Medicare Cuts?</h3>
+    <p>Based on data from the 2015 American Community Survey, we can analyze data on populations of Medicare enrollees. We can look at which populations have relatively high numbers of people on Medicare relative to other insurance options using a revealed comparative advantage calculation (RCA).</p>
+
+    <div id="viz"></div>
+    <p>Using this approach we see that the states with the 3 largest relative Medicare populations are:
+    <span id="top" class="list"></span> and the states with the 3 smallest relative Medicare populations are: <span id="bottom" class="list"></span>.</p> Therefore these two groups of states are likely to be the most and least impacted, respectively, to cuts to Medicare.
+
+    <script>
+
+      var mapVar = "hc_pop_rca";
+
+      d3.csv("https://api.datausa.io/api/csv?sort=desc&sumlevel=state&show=geo&required=hc_pop%2Chc_pop_moe%2Chc_pop_rca&year=2015&insurance=has_medicare&display_names=1&order=hc_pop_rca&sort=desc", init);
+
+      function init(data) {
+        // d3.csv adds an extra row we don't need
+        data = data.slice(0, data.length - 1);
+        // when using d3.csv we need to convert the objects to numbers
+        data.forEach(function(d){ d[mapVar] = +d[mapVar]; });
+        draw(data);
+      }
+
+      function draw(data) {
+        console.log(data);
+        renderText(data);
+        var config = {
+          "select": "#viz",
+          "data": data,
+          "groupBy": "geo",
+          "height": 430,
+          "label": function(d) { return d.geo_name },
+          "topojson": "states.json",
+          "topojsonFilter": function(d) {
+             var hiddenTopo = ["04000US69", "04000US66", "04000US60", "04000US78", "05000US60050", "05000US60010", "05000US60020", "05000US66010", "05000US69100", "05000US69110", "05000US69120", "05000US69085", "79500US6600100", "04000US02", "04000US15"];
+             return hiddenTopo.indexOf(d.id) < 0;
+        },
+        "tooltipConfig": {
+              // exercise for the user: format numbers with commas!
+            body: function(d) { return "People on Medicare: " + d["hc_pop"]; }
+        },
+          "colorScale": mapVar
+        };
+        new d3plus.Geomap()
+          .config(config)
+          .render();
+        console.log("RENDER!");
+      }
+
+      function renderText(data) {
+        var names = [];
+        for (var i in data) {
+           names.push(data[i].geo_name);
+        }
+        var top = document.getElementById("top");
+        var bottom = document.getElementById("bottom");
+        top.innerText = names.slice(0, 2).join(", ") + ", and " + names[2];
+        var bottomPos = names.length - 2 - 1;
+        bottom.innerText = names.slice(bottomPos, bottomPos + 2).join(", ") + ", and " + names[names.length - 1];
+      }
+
+    </script>
+
+  </body>
+</html>

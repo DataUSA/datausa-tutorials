@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>My Cool Visualization</title>
+    <script src="https://d3plus.org/js/d3plus.v2.0.0-alpha.13.full.min.js"></script>
+    <script src="https://d3js.org/d3.v4.min.js"></script>
+  </head>
+  <body>
+
+    <h1>My Title</h1>
+    <p>
+      Here is some text!
+    </p>
+    <div id="viz" style="height: 400px; width: 600px;"></div>
+
+    <script>
+
+      d3.json("https://api.datausa.io/attrs/geo/", function(err, data) {
+
+        data = d3plus.dataFold(data);
+        data = data.reduce(function(obj, d) {
+          obj[d.id] = d;
+          return obj;
+        }, {});
+        console.log(data);
+
+
+        new d3plus.BarChart()
+          .data("https://api.datausa.io/api/?show=geo&geo=01000US,04000US25&required=income,year")
+          .groupPadding(20)
+          .groupBy("geo")
+          .label(d => data[d.geo].display_name)
+          .y("year")
+          .x("income")
+          .discrete("y")
+          .select("#viz")
+          .shapeConfig({
+            fill: function(d) {
+              return d.geo === "01000US" ? "#ccc" : "#990000";
+            }
+          })
+          .xConfig({
+            title: "Income"
+          })
+          .yConfig({
+            title: "Year"
+          })
+          .render();
+      });
+
+    </script>
+
+  </body>
+</html>

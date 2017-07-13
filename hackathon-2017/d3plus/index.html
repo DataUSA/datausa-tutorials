@@ -1,54 +1,672 @@
 <!doctype html>
-<html>
+<html lang="en">
 
-  <head>
-    <title>D3plus</title>
-    <!-- load in JS file -->
-    <script src="https://d3plus.org/js/d3plus.full.min.js"></script>
-    <style>
-    .greendot {
-      color: green;
+	<head>
+		<meta charset="utf-8">
+
+		<title>Creating Visualizations w/ D3plus</title>
+
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+		<link rel="stylesheet" href="/revealjs/css/reveal.css">
+		<link rel="stylesheet" href="/revealjs/css/theme/datausa.css" id="theme">
+	  <link rel="stylesheet" type="text/css" href="/css/font-awesome-4.4.0/css/font-awesome.min.css">
+
+		<!-- Code syntax highlighting -->
+		<link rel="stylesheet" href="/revealjs/lib/css/zenburn.css">
+
+		<style>
+			.inline {
+				display: inline-block;
+				margin: 25px !important;
+				vertical-align: middle !important;
+			}
+			i {
+				color: rgba(255, 255, 255, 0.4);
+				font-size: 300px !important;
+			}
+			.noborder {
+				background: none !important;
+				border: none !important;
+				box-shadow: none !important;
+			}
+			ul.small {
+				font-size: 18px !important;
+			}
+			ul.small li {
+				margin: 5px 0 !important;
+			}
+			.bottom {
+				bottom: 0;
+				position: absolute;
+			}
+		</style>
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? '/revealjs/css/print/pdf.css' : '/revealjs/css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+
+		<!--[if lt IE 9]>
+		<script src="/revealjs/lib/js/html5shiv.js"></script>
+		<![endif]-->
+
+	</head>
+
+	<body>
+
+		<div class="reveal">
+			<div class="slides">
+
+
+
+        <!-- specific slides start here -->
+
+
+				<section>
+				  <section>
+				    <h1>Creating Visualizations</h1>
+						<ul>
+							<li>Layout w/ HTML</li>
+							<li>Style w/ CSS</li>
+							<li>Interact w/ Javascript</li>
+							<li>Visualize w/ D3plus</li>
+						</ul>
+				  </section>
+				</section>
+
+
+				<section>
+				  <section>
+				    <h1>HTML Basics</h1>
+            <i class="fa fa-code"></i>
+				  </section>
+				  <section>
+				    <h2>From Wikipedia:</h2>
+				    <blockquote>
+				      "HyperText Markup Language, commonly referred to as HTML, is the standard markup language used to create web pages."
+				    </blockquote>
+				  </section>
+				  <section>
+				    <h2>A brief history</h2>
+				    <img src="../img/tbl.jpg" />
+				    <p>Created by Tim Berners-Lee in 1995 as a way to distribute research papers.
+				  </section>
+				  <section>
+				    <h2>More From Wikipedia:</h2>
+				    <blockquote>
+				      "The language is written in the form of HTML elements consisting of tags enclosed in angle brackets (like &lt;html&gt;).
+				      <br /><br />
+				      Browsers do not display the HTML tags and scripts, but use them to interpret the content of the page."
+				    </blockquote>
+				  </section>
+				  <section>
+				    <h2>So let's start writing some code</h2>
+				    <ul>
+							<li>Open index.html in your text editor.</li>
+							<li>Run your python server in your bash shell.</li>
+							<li>View the page in your web browser.</li>
+						</ul>
+				  </section>
+				  <section>
+				    <h2>DOCTYPE Declaration</h2>
+				    <p>
+				      The Document Type Declaration is for HTML5 and <em>should</em> be the included as the first line of every HTML file.
+				    </p>
+				    <pre><code class="html">&lt;!DOCTYPE html&gt;</code></pre>
+				    <p>
+				      If a declaration is not included, some browsers will revert to their legacy "quirks mode" for rendering.
+				    </p>
+				  </section>
+				  <section>
+				    <h2>HTML Wrapper</h2>
+				    <p>
+				      The contents of every HTML file (except for the DOCTYPE) should be wrapped in &lt;html&gt; tags:
+				    </p>
+				    <pre><code class="html">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+
+&lt;/html&gt;</code></pre>
+				    <ul>
+				      <li class="fragment">Capitalization does not matter.</li>
+				      <li class="fragment">Remember to close any tags that you open.</li>
+				    </ul>
+				  </section>
+				  <section>
+				    <h2>The Head and Body</h2>
+				    <p>
+				      All webpages have a head and a body. The head contains information about the page (the brains) and the body contains information that will be visible to the user (the brawn).
+				    </p>
+				    <pre><code class="html">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+  &lt;head&gt;
+
+  &lt;/head&gt;
+  &lt;body&gt;
+
+  &lt;/body&gt;
+&lt;/html&gt;</code></pre>
+				    <ul>
+				      <li class="fragment">The head MUST come before the body.</li>
+				      <li class="fragment">Identation does not matter, but will help keep your sanity.</li>
+				    </ul>
+				  </section>
+				  <section>
+				    <h2>Character Encoding</h2>
+				    <p>
+				      Like the DOCTYPE before it, there is one more <em>required</em> tag that must be present in the head of every document.
+				    </p>
+				    <pre><code class="html">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+  &lt;head&gt;
+   &lt;meta charset="utf-8" /&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+
+  &lt;/body&gt;
+&lt;/html&gt;</code></pre>
+				    <ul>
+				      <li class="fragment">This explicitly sets the character set used, if not passed by the server.</li>
+				      <li class="fragment">Dave, did you mention how we're setting an attribute of a tag?</li>
+				      <li class="fragment">Did you also mention self-closing tags?</li>
+				    </ul>
+				  </section>
+				  <section>
+				    <h2>Stop and test</h2>
+				    <p>
+				      Put something in the body of the page and make sure it's rendering to your browser.
+				    </p>
+				    <pre><code class="html">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;meta charset="utf-8" /&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    Hello World
+  &lt;/body&gt;
+&lt;/html&gt;</code></pre>
+				  </section>
+				  <section>
+				    <h2>Get rid of that ugly page title</h2>
+				    <p>
+				      One of the many tags that the head supports is &lt;title&gt;.
+				    </p>
+				    <pre><code class="html">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;meta charset="utf-8" /&gt;
+    &lt;title&gt;My Cool Visualization&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    Hello World
+  &lt;/body&gt;
+&lt;/html&gt;</code></pre>
+				    <p class="fragment">Great for browsers, bookmarks, screen readers, and SEO</p>
+				  </section>
+				  <section>
+				    <h2>Wikipedia, what's "SEO"?</h2>
+				    <blockquote class="fragment">
+				      "Search engine optimization (SEO) is the process of affecting the visibility of a website or a web page in a search engine's unpaid results - often referred to as "natural," "organic," or "earned" results. In general, the earlier (or higher ranked on the search results page), and more frequently a site appears in the search results list, the more visitors it will receive from the search engine's users."
+				    </blockquote>
+				  </section>
+				  <section>
+				    <h2>Dave, what the hell does that mean?</h2>
+				    <p class="fragment">
+				      Search engines, in their spare time, go to every webpage they can find over the internet and either add or update their listings with the information it can read from the page.
+				    </p>
+				    <small class="fragment">That's known as "crawling".</small>
+				    <p class="fragment">
+				      The more clear, organized, and descriptive the content is on a webpage, the more accurate the search engine's listing will become.
+				    </p>
+				  </section>
+				  <section>
+				    <h2>Back to the body</h2>
+				    <p>
+				      The basic structure of HTML was created based on what you would find in a research paper or Word document.
+				    </p>
+				    <ul>
+				      <li class="fragment">&lt;p&gt; for paragraphs</li>
+				      <li class="fragment">&lt;h1&gt;, &lt;h2&gt;, &lt;h3&gt;, etc for headings</li>
+				      <li class="fragment">&lt;ul&gt; and &lt;ol&gt; for unordered and ordered lists</li>
+				      <li class="fragment">&lt;a&gt; for anchor links</li>
+				      <li class="fragment">&lt;div&gt; for divisions</li>
+				      <li class="fragment">&lt;span&gt; for spans of words</li>
+				    </ul>
+						<p class="fragment">Take a few minutes to play around with these tags. Add a top level heading and an intro paragraph to your page.</p>
+				  </section>
+				</section>
+
+				<section>
+				  <section>
+				    <h1>Styling Content</h1>
+            <i class="fa fa-paint-brush"></i>
+				  </section>
+				  <section>
+				    <h2>Inline styles</h2>
+				    <pre><code class="html"><p style="color: red;">Some text</p></code></pre>
+				    <pre class="fragment"><code class="html"><p style="color: red; font-size: 32px;">Some text</p></code></pre>
+				    <pre class="fragment"><code class="html"><p style="color: red; font-size: 32px; background-color: blue; margin: 25px;">Some text</p></code></pre>
+						<p class="fragment">
+							Copy/pasting long lists of styles is silly.<br />Separate form and content as much as possible.
+						</p>
+				  </section>
+				  <section>
+				    <h1>CSS to the rescue</h1>
+				    <small class="fragment">"Cascading Style Sheets"</small>
+				  </section>
+				  <section>
+				    <h2>Styles in the Head</h2>
+				    <p>
+				      CSS can be defined in the &lt;head&gt; of a document, and they will effect every element on the page.
+				    </p>
+				    <pre><code class="html">&lt;head&gt;
+  &lt;meta charset="utf-8" /&gt;
+  &lt;title&gt;My cool test page&lt;/title&gt;
+
+  &lt;style&gt;
+    p {
+      color: red;
+      font-size: 32px;
     }
-    </style>
-  </head>
+  &lt;/style&gt;
+&lt;/head&gt;</code></pre>
+				  </section>
+				  <section>
+				    <h2>But Dave, what if I want to style two paragraphs separately?</h2>
+				    <p class="fragment">
+				      The ID attribute can be set on an element so that you can specifically select it in CSS:
+				    </p>
+				    <pre class="fragment"><code class="html"><p id="redParagraph">Some text</p></code></pre>
+				    <pre class="fragment"><code class="html">&lt;style&gt;
+  p#redParagraph {
+    color: red;
+    font-size: 32px;
+  }
+&lt;/style&gt;</code></pre>
+				    <small class="fragment">The "p" before the pound sign is optional.</small>
+				  </section>
+				  <section>
+				    <h1>HOWEVER</h1>
+				    <p class="fragment">
+				      Element IDs should only be used on single elements. If you have multiple elements that need the same style applied to them, use the "class" attribute:
+				    </p>
+				    <pre class="fragment"><code class="html"><p class="redParagraph">Some text</p>
+<p class="redParagraph">Some text</p></code></pre>
+				    <pre class="fragment"><code class="html">&lt;style&gt;
+  p.redParagraph {
+    color: red;
+    font-size: 32px;
+  }
+&lt;/style&gt;</code></pre>
+				    <small class="fragment">The "p" before the decimal sign is also optional.</small>
+				  </section>
+				  <section>
+				    <h2>Sharing Styles Between Files</h2>
+				    <p>
+				      When making a webpage with multiple pages, it's necessary to store styles in one central place.
+				    </p>
+				    <p class="fragment">
+				      Create a file called "style.css" in your project directory and cut/paste all of the code in between your &lt;style&gt; tags into that new file.
+				    </p>
+				  </section>
+				  <section>
+				    <h2>Sharing Styles Between Files</h2>
+				    <p>
+				      In the place of your &lt;style&gt; tags, create a link to that file:
+				    </p>
+				    <pre><code class="html">&lt;head&gt;
+  &lt;meta charset="utf-8" /&gt;
+  &lt;title&gt;My cool test page&lt;/title&gt;
 
-  <body>
-    <div id="viz"></div>
-  </body>
+  &lt;link rel="stylesheet" href="style.css" /&gt;
 
-  <script>
+&lt;/head&gt;</code></pre>
+				  </section>
+				  <section class="stretch" data-background="http://media1.giphy.com/media/nu6XLY6QHeUk8/giphy.gif">
+				    <h2 class="bottom">Duplicate Code is Gross</h2>
+				  </section>
+				</section>
 
-  function datafold(json) {
-    return json.data.map(function(data) {
-      return json.headers.reduce(function(obj, header, i) {
-        obj[header] = data[i];
-        return obj;
-      }, {});
-    });
+				<section>
+				  <section>
+				    <h1>Javascript Basics</h1>
+						<i class="fa fa-terminal"></i>
+				  </section>
+				  <section>
+				    <h2>What is Javascript?</h2>
+				    <p>
+				      While HTML is a programming language used for page layout, Javascript is a programming language used for page interaction and manipulation.
+				    </p>
+				    <p>
+				      Javascript code is written for the page to interpret, not render.
+				    </p>
+				  </section>
+				  <section>
+				    <h2>Script Tags</h2>
+				    <p>
+				      All Javascript code must be wrapped in between two &lt;script&gt; tags. These tags can be anywhere on an HTML page, in the header or the body.
+				    </p>
+				    <pre><code class="html">&lt;script&gt;
+
+&lt;/script&gt;</code></pre>
+				  </section>
+				  <section>
+				    <h2>Code Execution and Syntax</h2>
+				    <p>
+				      Javascript code is executed line-by-line, from top to bottom. While spacing and indentation do not matter, each line must end with a semi-colon.
+				    </p>
+				  </section>
+				  <section>
+				    <h2>Variables</h2>
+				    <p>
+				      A variable is a common name for a value that might change. By storing things as variables, we can access them later. Here we can store a number and print it out to the browser console.
+				    </p>
+				    <pre><code class="html">&lt;script&gt;
+
+  var myNumber = 42;
+
+  console.log(myNumber);
+
+&lt;/script&gt;</code></pre>
+						<p class="fragment">
+							Open the developer console in your browser to see the output.
+						</p>
+				  </section>
+				  <section>
+				    <h2>Number Variables</h2>
+				    <p>
+				      Numbers can be manipulated with math!
+				    </p>
+				    <pre><code class="html">&lt;script&gt;
+
+  var myNumber = 42;
+
+  myNumber = myNumber + 10;
+
+  console.log(myNumber);
+
+&lt;/script&gt;</code></pre>
+				  </section>
+				  <section>
+				    <h2>String Variables</h2>
+				    <p>
+				      Text is stored by surrounding the characters with quotation marks, and text strings can be concatenated to eachother.
+				    </p>
+				    <pre><code class="html">&lt;script&gt;
+
+  var myString = "Javascript is Cool!";
+
+  console.log("D3plus and " + myString);
+
+&lt;/script&gt;</code></pre>
+				  </section>
+				  <section>
+				    <h2>Array Variables</h2>
+				    <p>
+				      A list of variables can be stored as an Array, and you select which entry you need by using a zero-index based numbering system.
+				    </p>
+				    <pre><code class="html">&lt;script&gt;
+
+  var myArray = ["one", "two", "three", "four"];
+
+  // Any line starting with double slashes is a comment
+  // that will not be interpreted by the browser.
+
+  // This should print out "two"
+  console.log(myArray[1]);
+
+&lt;/script&gt;</code></pre>
+				  </section>
+				  <section>
+				    <h2>Object Variables</h2>
+				    <p>
+				      Data are commonly stored in objects with common keys to access specific data points.
+				    </p>
+				    <pre><code class="html">&lt;script&gt;
+
+  var myObject = {
+    name: "Dave",
+    color: "red"
+  };
+
+  console.log(myObject.name);
+
+&lt;/script&gt;</code></pre>
+				  </section>
+				  <section>
+				    <h2>Functions</h2>
+				    <p>
+				      When logic may need to be repeated multiple times, it is best practice to store that logic in one place. Functions are triggered by typing the function name followed by a set of parenthesis.
+				    </p>
+				    <pre><code class="html">&lt;script&gt;
+
+  var sayHello = function() {
+    console.log("Hello!");
   }
 
-  var myViz = d3plus.viz()
-    // .axes({"mirror": true})
-    .container("#viz")
-    .type("scatter")
-    .data("data.csv")
-    .id("State")
-    .size("Crude Rate")
-    .x("Population")
-    .y("Deaths")
-    // .color(function(d) {
-    //   if (d.grads_hawaiian > 100) return "red";
-    //   else return "green";
-    // })
-    // .tooltip(["grads_hawaiian","grads_men","grads_women"])
-    // .format({
-    //   "text": function(text) {
-    //     if (text.indexOf("grads_") === 0) return d3plus.string.title(text.split("_")[1]);
-    //     return text;
-    //   }
-    // })
-    .draw();
+  sayHello();
 
-  </script>
+&lt;/script&gt;</code></pre>
+				  </section>
+				  <section>
+				    <h2>Function Variables</h2>
+				    <p>
+				      Functions may accept variables to use internally.
+				    </p>
+				    <pre><code class="html">&lt;script&gt;
 
+  var sayText = function(txt) {
+    console.log(txt);
+  }
+
+  sayText("Goodbye");
+
+&lt;/script&gt;</code></pre>
+				  </section>
+				  <section>
+				    <h2>Function Returns</h2>
+				    <p>
+				      Additionally, functions can return a value.
+				    </p>
+				    <pre><code class="html">&lt;script&gt;
+
+  var plusTen = function(num) {
+    return num + 10;
+  }
+
+  var thirty = plusTen(20);
+
+  console.log(thirty);
+
+&lt;/script&gt;</code></pre>
+				  </section>
+				  <section>
+				    <h2>Boolean Variables</h2>
+				    <p>
+				      Booleans are values that are either true or false.
+				    </p>
+				    <pre><code class="html">&lt;script&gt;
+
+  var myNumber = 20;
+
+  var bigNumber = myNumber > 100;
+
+  console.log(bigNumber);
+
+&lt;/script&gt;</code></pre>
+				  </section>
+				  <section>
+				    <h2>Conditional Statements</h2>
+				    <p>
+				      Javascript contains syntax for evaluating logic and performing actions when a defined parameter is met.
+				    </p>
+				    <pre><code class="html">&lt;script&gt;
+
+  var myNumber = 12;
+
+  if (myNumber > 10) {
+    console.log("greater than 10!");
+  }
+  else {
+    console.log("less than 10!");
+  }
+
+&lt;/script&gt;</code></pre>
+				  </section>
+				  <section>
+				    <h2>Combining Everything</h2>
+				    <p>
+				      Javascript starts to shine once you start combining these concepts.
+				    </p>
+				    <pre><code class="html">&lt;script&gt;
+
+  function greaterThanTen(num) {
+
+    if (num > 10) {
+      console.log("greater than 10!");
+    }
+    else {
+      console.log("less than 10!");
+    }
+
+    return num > 10;
+
+  }
+
+  // this should return true
+  console.log(greaterThanTen(20));
+
+&lt;/script&gt;</code></pre>
+				  </section>
+				  <section>
+				    <h2>Interacting with HTML</h2>
+				    <p>
+				      The "document" is a pre-defined object with keys relating to the page itself. Here, we can select an element on the page and change it's content:
+				    </p>
+				    <pre><code class="html">&lt;h1 id="name"&gt;&lt;/h1&gt;
+&lt;script&gt;
+
+  document.getElementById("name").innerHTML = "Dave";
+
+&lt;/script&gt;</code></pre>
+						<p class="fragment">
+							This is a common way of using data loaded with javascript to edit the text of a paragraph.
+						</p>
+				  </section>
+				</section>
+
+				<section>
+					<section>
+						<h1>D3plus</h1>
+						<i class="fa fa-bar-chart"></i>
+					</section>
+				  <section>
+				    <h2>What is D3plus?</h2>
+				    <p>
+				      D3plus is a javascript visualization library that reduces the barrier in creating great interactive visualizations for the web.
+				    </p>
+				    <p class="fragment">
+				      We built it because we needed it.
+				    </p>
+				  </section>
+				  <section>
+				    <h2>2.0 Preview</h2>
+				    <p>
+				      Today, we will be using version 2.0.
+				    </p>
+				    <p class="fragment">
+				      It's faster, more easily expandable, and more customizable.
+				    </p>
+				    <p class="fragment">
+				      It's also very new, so be gentle 😬
+				    </p>
+				  </section>
+				  <section>
+				    <h2>Including the Library</h2>
+				    <p>
+				      Place the following link in the head of your page:
+				    </p>
+				    <pre><code class="html">&lt;script src="https://d3plus.org/js/d3plus.v2.0.0-alpha.13.full.min.js"&gt;&lt;/script&gt;</code></pre>
+						<p class="fragment">
+							Module listing found here: <a href="https://github.com/d3plus" target="_blank">https://github.com/d3plus</a>
+						</p>
+				  </section>
+				  <section>
+				    <h2>Let's make a Pie Chart</h2>
+				    <img class="stretch" src="../img/pie.png" />
+						<p class="fragment">
+							Simple example here: <a href="pie.html" target="_blank">pie.html</a>
+						</p>
+				  </section>
+				  <section>
+				    <h2>Let's make a Bar Chart</h2>
+				    <img class="stretch" src="../img/bar.png" />
+						<p class="fragment">
+							Simple example here: <a href="bar.html" target="_blank">bar.html</a>
+						</p>
+				  </section>
+				  <section>
+				    <h2>Let's use real data!</h2>
+				    <img class="stretch" src="../img/bar-api.png" />
+						<p class="fragment">
+							Simple example here: <a href="bar-data.html" target="_blank">bar-data.html</a>
+						</p>
+				  </section>
+				  <section>
+				    <h2>Let's disect Jonathan's code...</h2>
+				    <img class="stretch" src="../img/map.png" />
+						<p>
+							Code here: <a href="jonathan.html" target="_blank">jonathan.html</a>
+						</p>
+				  </section>
+				</section>
+
+
+
+
+        <!-- specific slides end here -->
+
+
+
+
+			</div>
+		</div>
+
+		<script src="/revealjs/lib/js/head.min.js"></script>
+		<script src="/revealjs/js/reveal.js"></script>
+
+		<script>
+
+			// Full list of configuration options available at:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: false,
+				progress: true,
+				history: false,
+				center: true,
+				overview: true,
+
+				transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+				// Optional reveal.js plugins
+				dependencies: [
+					{ src: '/revealjs/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: '/revealjs/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: '/revealjs/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: '/revealjs/plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: '/revealjs/plugin/zoom-js/zoom.js', async: true },
+					{ src: '/revealjs/plugin/notes/notes.js', async: true }
+				]
+			});
+
+		</script>
+
+	</body>
 </html>

@@ -5,48 +5,71 @@
     <title>My Cool Visualization</title>
     <script src="https://d3plus.org/js/d3plus.v2.0.0-alpha.13.full.min.js"></script>
     <script src="https://d3js.org/d3.v4.min.js"></script>
+    <style>
+
+      #viz {
+        background-color: grey;
+        height: 400px;
+        padding: 50px;
+        width: 600px;
+      }
+
+    </style>
   </head>
   <body>
-
-    <h1>My Title</h1>
+    <h1>My Cool Story</h1>
     <p>
-      Here is some text!
+      Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text
     </p>
-    <div id="viz" style="height: 400px; width: 600px;"></div>
+    <div id="viz"></div>
 
     <script>
 
-      d3.json("https://api.datausa.io/attrs/geo/", function(err, data) {
+      d3.json("https://api.datausa.io/attrs/geo/", function(error, data) {
 
         data = d3plus.dataFold(data);
-        data = data.reduce(function(obj, d) {
-          obj[d.id] = d;
+        var nameLookup = data.reduce(function(obj, d) {
+          obj[d.id] = d.display_name;
           return obj;
         }, {});
-        console.log(data);
 
+        console.log(nameLookup);
 
-        new d3plus.BarChart()
-          .data("https://api.datausa.io/api/?show=geo&geo=01000US,04000US25&required=income,year")
-          .groupPadding(20)
-          .groupBy("geo")
-          .label(d => data[d.geo].display_name)
-          .y("year")
-          .x("income")
-          .discrete("y")
-          .select("#viz")
-          .shapeConfig({
-            fill: function(d) {
-              return d.geo === "01000US" ? "#ccc" : "#990000";
+        var chart = new d3plus.BarChart();
+
+        var settings = {
+          data: "https://api.datausa.io/api/?show=geo&geo=01000US,04000US25&required=year,income",
+          discrete: "y",
+          groupBy: "geo",
+          label: function(d) {
+            return nameLookup[d.geo];
+          },
+          select: "#viz",
+          y: function(d) {
+            return d.year;
+          },
+          x: function(d) {
+            return d.income;
+          }
+        };
+
+        var arcStyles = {
+          fill: function(d) {
+            if (d.geo == "01000US") {
+              return "cornflowerblue";
             }
-          })
-          .xConfig({
-            title: "Income"
-          })
-          .yConfig({
-            title: "Year"
-          })
+            else {
+              return "rebeccapurple";
+            }
+          }
+        };
+
+        chart
+          .config(settings)
+          .shapeConfig(arcStyles)
           .render();
+
+
       });
 
     </script>
